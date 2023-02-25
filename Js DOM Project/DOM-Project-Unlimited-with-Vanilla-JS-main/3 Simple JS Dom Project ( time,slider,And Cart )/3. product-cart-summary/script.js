@@ -17,13 +17,23 @@ const displayProduct = function () {
 		let product_1 = document.createElement('td');
 		let product_2 = document.createElement('td');
 		let product_3 = document.createElement('td');
-
+		let product_4 = document.createElement('td');
+		// let product_5 = document.createElement('td'); not working well
 		product_1.innerText = i + 1;
 		product_2.innerText = allProduct[i].name;
 		product_3.innerText = allProduct[i].price;
-
-		newProductRow.append(product_1, product_2, product_3);
+		product_4.innerHTML = '<button class="delete-btn">Delete</button>';
+		// product_5.innerHTML = `<button class="edit-button" onclick="editProduct(${i})">Edit</button>`; not working properly
+		newProductRow.append(product_1, product_2, product_3, product_4); //product_5);
 		tableBody.append(newProductRow);
+
+		//  for delete a product
+		let deleteBtn = product_4.querySelector('.delete-btn');
+		deleteBtn.addEventListener('click', () => {
+			allProduct.splice(i, 1);
+			displayProduct();
+			displayProductSummery();
+		});
 	}
 };
 
@@ -102,3 +112,52 @@ DiscountForm.addEventListener('submit', (e) => {
 		alert('Please provide a valid discount percentage');
 	}
 });
+
+//  for edit button adds on every table row  **** edit function is not working properly ***
+
+// const editProduct = function (productID) {
+// 	let tableBody = document.querySelector('#table_body');
+
+// 	const productName = document.querySelector('#product_name');
+// 	const productPrice = document.querySelector('#product_price');
+
+// 	if (
+// 		productName.value === undefined ||
+// 		productName.value.trim() === '' ||
+// 		productPrice.value === undefined ||
+// 		productPrice.value.trim() === ''
+// 	) {
+// 		alert('Please select a product name and price you want to updated it ');
+// 	} else {
+// 		allProduct[productID] = {
+// 			name: productName.value,
+// 			price: parseInt(productPrice.value),
+// 		};
+// 	}
+
+// 	productName.value = '';
+// 	productPrice.value = '';
+// 	displayProduct();
+// 	displayProductSummery();
+// 	for (let i = 0; i < allProduct.length; i++) {
+// 		let newProductRow = document.createElement('tr');
+// 		let editButton = document.createElement('button');
+
+// 		editButton.innerText = 'Edit  + ';
+// 		editButton.addEventListener('click', () => {
+// 			editProduct(i);
+// 		});
+
+// 		let product_1 = document.createElement('td');
+// 		let product_2 = document.createElement('td');
+// 		let product_3 = document.createElement('td');
+
+// 		product_1.innerText = i + 1;
+
+// 		product_2.innerText = allProduct[i].name;
+// 		product_3.innerText = allProduct[i].price;
+
+// 		newProductRow.append(product_1, product_2, product_3);
+// 		tableBody.append(newProductRow);
+// 	}
+// };

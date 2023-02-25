@@ -110,3 +110,7 @@ button {
 button.reset_btn {
 	background-color: #f90202;
 }
+
+.delete-btn {
+	background-color: red;
+}
