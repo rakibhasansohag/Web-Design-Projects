@@ -2,7 +2,12 @@
 
 const formSubmit = document.querySelector('#product_form');
 const allProduct = [];
-
+const productSummery = {
+	discount: 0,
+	netPrice: 0,
+	totalItems: 0,
+	totalPrice: 0,
+};
 const displayProduct = function () {
 	let tableBody = document.querySelector('#table_body');
 	tableBody.innerText = '';
@@ -20,6 +25,19 @@ const displayProduct = function () {
 		newProductRow.append(product_1, product_2, product_3);
 		tableBody.append(newProductRow);
 	}
+};
+
+const displayProductSummery = function () {
+	const netPriceBox = document.querySelector('#net_price');
+	const totalItems = document.querySelector('#total_items');
+	productSummery.netPrice = 0;
+
+	for (let i = 0; i < allProduct.length; i++) {
+		productSummery.netPrice = productSummery.netPrice + allProduct[i].price;
+		// productSummery.netPrice += allProduct[i].price; // good for performance
+	}
+	netPriceBox.innerText = productSummery.netPrice;
+	totalItems.innerText = allProduct.length;
 };
 
 formSubmit.addEventListener('submit', function (e) {
@@ -40,7 +58,7 @@ formSubmit.addEventListener('submit', function (e) {
 	} else {
 		allProduct[allProduct.length] = {
 			name: productName.value,
-			price: productPrice.value,
+			price: parseInt(productPrice.value),
 		};
 	}
 
@@ -57,4 +75,30 @@ formSubmit.addEventListener('submit', function (e) {
 	productPrice.value = '';
 	console.log(allProduct);
 	displayProduct();
+	displayProductSummery();
+});
+
+const DiscountForm = document.querySelector('#discount_form');
+
+DiscountForm.addEventListener('submit', (e) => {
+	e.preventDefault();
+	let discountPercentage = document.querySelector('#product_discount');
+	const discountPrice = document.querySelector('#discount');
+	const totalPriceBox = document.querySelector('#total_price');
+
+	// check if the input value is not empty and is a valid number
+	if (
+		discountPercentage.value.trim() !== '' &&
+		!isNaN(parseInt(discountPercentage.value))
+	) {
+		discountPercentage = parseInt(discountPercentage.value);
+		productSummery.discount =
+			productSummery.netPrice * (discountPercentage / 100);
+		productSummery.totalPrice =
+			productSummery.netPrice - productSummery.discount;
+		discountPrice.innerText = productSummery.discount; // for discount
+		totalPriceBox.innerText = productSummery.totalPrice; // for total price
+	} else {
+		alert('Please provide a valid discount percentage');
+	}
 });
