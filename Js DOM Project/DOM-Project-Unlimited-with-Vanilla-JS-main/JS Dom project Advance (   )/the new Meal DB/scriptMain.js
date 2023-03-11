@@ -1,4 +1,4 @@
-// for development purposes
+// for development purposes new features
 const history = [];
 
 const getData = (api, cb) => {
