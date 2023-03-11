@@ -1,0 +1,139 @@
+* {
+	text-decoration: none;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/* header section */
+header {
+	background-color: #eee;
+	padding: 20px 0 20px 0;
+}
+header form {
+	display: flex;
+	justify-content: space-between;
+	width: 80%;
+	margin: 0 auto;
+}
+
+header form h2 {
+	font-size: 2.3rem;
+	color: black;
+	text-transform: capitalize;
+	font-style: oblique;
+}
+
+header form .inputField input {
+	box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
+		rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
+		rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+	border: 1px solid #eee;
+	outline: none;
+	padding: 10px 0px 11px 15px;
+	font-size: 1.1rem;
+	color: red;
+}
+
+header form .inputField button {
+	font-size: inherit;
+	padding: 10px 19px;
+	color: black;
+	box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
+		rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
+		rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+	border: 1px solid #eee;
+	cursor: pointer;
+	margin-left: 8px;
+}
+
+/* food section */
+#food h1 {
+	text-align: center;
+	color: red;
+	font-size: 1.6rem;
+	text-transform: capitalize;
+	margin-top: 10px;
+	margin-bottom: 60px;
+}
+
+.card_section {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 1.5rem;
+	justify-content: center;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.card {
+	text-align: center;
+	background-color: azure;
+	padding: 30px 30px 28px 39px;
+	justify-content: center;
+	margin: 0 10px 0 10px;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+		rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+	border: 1px solid #eee;
+}
+
+.card #card_img {
+	width: 80%;
+	margin: 0 0 30px 0;
+}
+
+.card #card_id {
+	font-size: 1.3rem;
+	margin-bottom: 30px;
+}
+.card #food_name {
+	font-size: 1.3rem;
+	color: rgba(0, 0, 0, 0.449);
+}
+#show_history {
+	background-color: #f2f2f2;
+	padding: 10px;
+	border-radius: 5px;
+	margin-top: 20px;
+	max-height: 150px;
+	overflow-y: auto;
+}
+
+#show_history li {
+	margin-bottom: 5px;
+	font-size: 14px;
+	color: #555;
+	padding: 5px;
+	border-radius: 3px;
+	background-color: #fff;
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+@media only screen and (max-width: 968px) {
+	.card_section {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+@media only screen and (max-width: 646px) {
+	header form {
+		display: block;
+	}
+}
+@media only screen and (max-width: 430px) {
+	.inputField {
+		display: flex;
+		flex-direction: column;
+	}
+	.card_section {
+		grid-template-columns: 1fr;
+	}
+	header {
+		text-align: center;
+	}
+	header form h2 {
+		margin-bottom: 10px;
+	}
+	header form .inputField button {
+		margin-left: 0px;
+		margin-top: 10px;
+	}
+}
