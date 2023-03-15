@@ -1,0 +1,115 @@
+button {
+	cursor: pointer;
+	background-color: #428bca;
+	color: #fff;
+}
+
+.container {
+	display: grid;
+	grid-template-columns: 7fr 5fr;
+	width: 90%;
+	gap: 30px;
+	margin: 0 auto;
+}
+
+.products {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+
+.product {
+	margin: 10px;
+	padding: 10px;
+	text-align: center;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+		rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.product img {
+	width: 80%;
+	height: 150px;
+	object-fit: contain;
+}
+
+.add-btn {
+	display: block;
+	margin: 10px auto;
+	padding: 5px 10px;
+	background-color: #428bca;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.cart {
+	padding: 20px;
+	text-align: center;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+
+.mainCard {
+	display: flex;
+	flex-direction: column;
+}
+
+.cart table {
+	width: 100%;
+	margin-bottom: 100px;
+	border: 2px solid #428bca;
+	padding: 10px;
+}
+
+.cart table th {
+	text-align: center;
+	color: #555;
+	padding: 5px;
+	border-radius: 3px;
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.cart table td {
+	color: #555;
+	padding: 5px;
+	border-radius: 3px;
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.cart-total {
+	margin-top: 10px;
+	border: 2px solid #428bca;
+	padding: 10px;
+}
+
+.cart-discount {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-bottom: 10px;
+	font-size: 17px;
+	letter-spacing: 1px;
+}
+
+.cart-discount label {
+	margin-right: 5px;
+}
+
+.cart-discount input {
+	padding: 5px;
+	border: 3px solid #428bca;
+	outline: none;
+	border-radius: 5px;
+}
+
+.total-items,
+.net-price,
+.discount,
+.total {
+	display: flex;
+	justify-content: space-around;
+}

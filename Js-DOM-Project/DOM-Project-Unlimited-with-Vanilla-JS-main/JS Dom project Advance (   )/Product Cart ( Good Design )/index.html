@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Product Card Good Design</title>
+	<link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+	<div class="container">
+		<div class="products">
+			<!-- <div class="product">
+				<img src="product1.jpg">
+				<h3>Product 1</h3>
+				<p>$10.00</p>
+				<button class="add-btn">Add to cart</button>
+			</div>
+			<div class="product">
+				<img src="product2.jpg">
+				<h3>Product 2</h3>
+				<p>$20.00</p>
+				<button class="add-btn">Add to cart</button>
+			</div>
+			<div class="product">
+				<img src="product3.jpg">
+				<h3>Product 3</h3>
+				<p>$30.00</p>
+				<button class="add-btn">Add to cart</button>
+			</div> -->
+		</div>
+		<div class="cart">
+			<h2>Shopping Cart</h2>
+			<div class="mainCard">
+				<table class="table-data">
+					<thead>
+						<tr>
+							<th>Product</th>
+							<th>Price</th>
+							<th>Quantity</th>
+							<th>Remove</th>
+						</tr>
+					</thead>
+					<tbody id="cart-items">
+						<!-- Cart items will be added here dynamically -->
+					</tbody>
+				</table>
+				<div class="cart-total">
+					<h1>Summary</h1>
+					<div class="cart-subtotal">
+						<div class="total-items">
+							<p>Total Items :</p>
+							<p id="total-items">0</p>
+						</div>
+						<div class="net-price">
+							<p>Net Price :</p>
+							<p id="net-price">$0.00</p>
+						</div>
+						<div class="discount">
+							<p>Discount :</p>
+							<p id="discount">$0.00</p>
+						</div>
+						<div class="total">
+							<p>Total Price:</p>
+							<p id="total">$0.00</p>
+						</div>
+					</div>
+					<div class="cart-discount">
+						<div class="discount-input">
+							<label for="discount">Discount code:</label>
+							<input type="text" id="discount-code" placeholder="Enter discount code">
+						</div>
+						<button id="apply-btn">Apply</button>
+					</div>
+					<button class="checkout-btn">Checkout</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
