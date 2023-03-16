@@ -1,4 +1,4 @@
-// todo: Have to make this code more readable and have add an reset button to reset everything
+// todo: Have to make this code more readable and have add an checkout page where my product summery will be shown and and when i given the money it will complete the payment process and if i give more than product cart need it will return me that money
 
 // Product data
 const products = [
@@ -164,4 +164,26 @@ applyButton.addEventListener('click', (event) => {
 		alert('Please provide a valid discount percentage ( discount ) ');
 	}
 	discountInput.value = '';
+});
+
+const resetBtn = document.getElementById('reset-btn');
+
+resetBtn.addEventListener('click', () => {
+	cart = [];
+	updateCart();
+	alert('everything is clear');
+});
+
+const checkoutButton = document.querySelector('.checkout-btn');
+// Add event listener to checkout button
+checkoutButton.addEventListener('click', () => {
+	if (cart.length === 0) {
+		alert(
+			'Your cart is empty. Please add items to your cart before checking out.',
+		);
+	} else {
+		alert('Thank you for your purchase!');
+		cart = [];
+		updateCart();
+	}
 });
