@@ -1,3 +1,7 @@
+body {
+	user-select: none;
+}
+
 button {
 	cursor: pointer;
 	background-color: #428bca;
