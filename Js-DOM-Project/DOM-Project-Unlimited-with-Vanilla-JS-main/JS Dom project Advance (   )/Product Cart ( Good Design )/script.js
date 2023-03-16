@@ -155,13 +155,13 @@ applyButton.addEventListener('click', (event) => {
 	event.preventDefault();
 	const discountInput = document.querySelector('#discount-code');
 	const discountCode = discountInput.value.trim();
-	if (discountCode === 'discount') {
+	if (discountCode === 'dev10') {
 		const total = parseFloat(cartTotal.innerText.replace('$', ''));
 		const discountedTotal = total * 0.9;
 		cartTotal.innerText = `$${discountedTotal.toFixed(2)}`;
 		discountPriceElement.innerText = `$${(total - discountedTotal).toFixed(2)}`;
 	} else {
-		alert('Please provide a valid discount percentage ( discount ) ');
+		alert('Please provide a valid discount promo code ( dev10 ) ');
 	}
 	discountInput.value = '';
 });
