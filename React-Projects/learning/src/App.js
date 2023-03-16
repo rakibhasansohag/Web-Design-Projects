@@ -1,11 +1,13 @@
 import './App.css';
-import Event from './components/client/Event/Event';
+import Counter from './components/client/propsHandle/Counter';
 
 function App() {
 	return (
 		<div className='App'>
 			<h1>this is the main app</h1>
-			<Event />
+			{/* <Event /> */}
+			{/* <ConditionalRendering result='4' /> */}
+			<Counter />
 		</div>
 	);
 }
