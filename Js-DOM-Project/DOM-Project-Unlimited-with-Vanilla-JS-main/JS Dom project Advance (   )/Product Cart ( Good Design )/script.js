@@ -187,3 +187,7 @@ checkoutButton.addEventListener('click', () => {
 		updateCart();
 	}
 });
+
+// turn off mouse right click option when clicking
+
+document.addEventListener('contextmenu', (e) => e.preventDefault());
