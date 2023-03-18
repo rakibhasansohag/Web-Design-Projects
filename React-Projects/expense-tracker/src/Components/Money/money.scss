@@ -1,0 +1,36 @@
+.money_section {
+	padding: 2.4rem 0;
+	width: 90%;
+	margin: 0 auto;
+	.current_balance {
+		text-align: center;
+		margin: 0 0 1rem 0;
+		h2 {
+			color: black;
+			font-weight: 800;
+			font-size: 2.4rem;
+			letter-spacing: 1px;
+			margin: 4px 0;
+		}
+	}
+	.income_expanse {
+		display: flex;
+		gap: 30px;
+		margin: 2rem 0;
+		.income_box,
+		.expanse_box {
+			background-color: #f0f8ff;
+			padding: 3rem;
+			width: 100%;
+			text-align: center;
+			p {
+				font-size: 2.3rem;
+				font-weight: 700;
+				margin: 5px 0;
+				&:nth-child(2) {
+					margin-right: 16px;
+				}
+			}
+		}
+	}
+}
