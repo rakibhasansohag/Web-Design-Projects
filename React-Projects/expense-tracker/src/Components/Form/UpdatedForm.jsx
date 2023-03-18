@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import { ExpenseButton, IncomeButton } from '../Button/Button';
+import { ExpenseButton } from '../Button/Button';
 import './form.scss';
 
 const initialValue = {
 	name: '',
 	amount: '',
 	type: '',
+	date: '',
 };
 
-const UpdatedForm = () => {
+const UpdatedForm = ({ addInputHandler }) => {
 	const [data, setData] = useState(initialValue);
 
 	const handleChange = (e) => {
@@ -20,14 +21,22 @@ const UpdatedForm = () => {
 		} else {
 			newState[name] = value;
 		}
-
+		newState['date'] = new Date().toLocaleDateString();
 		setData(newState);
 	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+
+		// Check if any field is empty
+		if (!data.name || !data.amount || !data.type) {
+			alert('Please provide name, amount and type');
+			return;
+		}
+
+		addInputHandler(data);
+
 		setData(initialValue);
-		console.log(data);
 	};
 
 	return (
@@ -73,7 +82,6 @@ const UpdatedForm = () => {
 
 				<div className='button_box'>
 					<ExpenseButton expense={data.type} />
-					<IncomeButton income={data.type} />
 				</div>
 			</form>
 		</div>
