@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { ExpenseButton } from '../Button/Button';
 import './form.scss';
 
@@ -11,6 +11,7 @@ const initialValue = {
 
 const UpdatedForm = ({ addInputHandler }) => {
 	const [data, setData] = useState(initialValue);
+	const formRef = useRef(null);
 
 	const handleChange = (e) => {
 		const { name, value, type, checked } = e.target;
@@ -36,13 +37,15 @@ const UpdatedForm = ({ addInputHandler }) => {
 
 		addInputHandler(data);
 
+		// Clear form and checkboxes
+		formRef.current.reset();
 		setData(initialValue);
 	};
 
 	return (
 		<div className='form'>
 			<h2>Add Income or Expense</h2>
-			<form onSubmit={handleSubmit}>
+			<form ref={formRef} onSubmit={handleSubmit}>
 				<div>
 					<label htmlFor=''>Name: </label>
 					<input
