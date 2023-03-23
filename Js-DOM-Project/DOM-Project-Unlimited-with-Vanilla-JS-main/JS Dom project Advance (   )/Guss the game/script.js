@@ -7,6 +7,30 @@ let highScore = 0;
 const displayMessage = function (message) {
 	document.querySelector('.message').textContent = message;
 };
+//  for restoring the original guessing
+const handleCorrectGuess = function () {
+	displayMessage('congratulations you got the number!');
+	document.querySelector('.number').textContent = secretNumber;
+	document.querySelector('body').style.backgroundColor = '#60b347';
+	document.querySelector('.number').style.width = '30rem';
+
+	if (score > highScore) {
+		highScore = score;
+		document.querySelector('.highScore').textContent = highScore;
+	}
+
+	// Restore the initial game state after 3 seconds
+	setTimeout(() => {
+		score = 20;
+		secretNumber = Math.trunc(Math.random() * 20) + 1;
+		displayMessage('Start guessing...');
+		document.querySelector('.score').textContent = score;
+		document.querySelector('.number').textContent = '?';
+		document.querySelector('.guess').value = '';
+		document.querySelector('body').style.backgroundColor = '#222';
+		document.querySelector('.number').style.width = '15rem';
+	}, 3000);
+};
 
 const check = document.querySelector('.check');
 check.addEventListener('click', () => {
@@ -17,10 +41,7 @@ check.addEventListener('click', () => {
 	if (!guess) {
 		displayMessage('please enter a number');
 	} else if (guess === secretNumber) {
-		displayMessage('congregations you got the number');
-		document.querySelector('.number').textContent = secretNumber;
-		document.querySelector('body').style.backgroundColor = '#60b347';
-		document.querySelector('.number').style.width = '30rem';
+		handleCorrectGuess();
 
 		if (score > highScore) {
 			highScore = score;
@@ -52,7 +73,7 @@ again.addEventListener('click', () => {
 
 	displayMessage('Start Guessing...');
 	document.querySelector('.score').textContent = score;
-	document.querySelector('.numbers').textContent = '?';
+	document.querySelector('.number').textContent = '?';
 	document.querySelector('.guess').value = '';
 	document.querySelector('body').style.backgroundColor = '#222';
 	document.querySelector('.number').style.width = '15rem';
