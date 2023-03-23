@@ -7,9 +7,9 @@ let highScore = 0;
 const displayMessage = function (message) {
 	document.querySelector('.message').textContent = message;
 };
-//  for restoring the original guessing
-const handleCorrectGuess = function () {
-	displayMessage('congratulations you got the number!');
+//  code block  for right guessing
+const handleCorrectGuess = () => {
+	displayMessage('congratulations you got the right number!');
 	document.querySelector('.number').textContent = secretNumber;
 	document.querySelector('body').style.backgroundColor = '#60b347';
 	document.querySelector('.number').style.width = '30rem';
