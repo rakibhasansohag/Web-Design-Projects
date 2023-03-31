@@ -1,0 +1,129 @@
+<-- <ul>
+		<li><a href="./Js-DOM-Project/3-Simple-JS-Dom-Project/1-digital-clock/index.html" target="_blank">digital
+				clock with random color</a>
+		</li>
+		<li><a href="./Js-DOM-Project/3-Simple-JS-Dom-Project/3-product-cart-summary/index.html" target="_blank">simple
+				product cart</a></li>
+		<li><a href="./Js-DOM-Project/3-Simple-JS-Dom-Project/2-slider/index.html" target="_blank">simple slider</a>
+		</li>
+		<li><a href='./Js-DOM-Project/JS-Dom-project-Advance/Advance-Product-Cart/index.html' target="_blank">advance
+				Cart</a></li>
+		<li><a href='./Js-DOM-Project/JS-Dom-project-Advance/Guss-the-game/index.html' target="_blank">guess the
+				game</a></li>
+		<li><a href='./Js-DOM-Project/JS-Dom-project-Advance/Product-Cart2/index.html' target="_blank">product cart
+				2</a></li>
+		<li><a href='./Js-DOM-Project/JS-Dom-project-Advance/the-new-Meal-DB/index.html' target="_blank">the new
+				Meal</a></li>
+		<li><a href='./Js-DOM-Project/JS-Dom-project-Advance/The-Pig-Gmae/index.html' target="_blank">the pick game</a>
+		</li>
+		<li><a href='https://react-c-dashboard.netlify.app/' target="_blank">React Dash Board</a></li>
+		<li><a href='.https://devoloper-rakib.github.io/chart-dashboard/' target="_blank">chart DashBOard</a></li>
+
+
+		<li><a href='https://devoloper-rakib.github.io/chart-dashboard/' target="_blank">responsive DashBoard</a></li>
+
+		<li><a href='https://dev-dex.netlify.app/' target="_blank">React BlogSite</a></li>
+
+		<li><a href='https://dev-dex.netlify.app/' target="_blank">React Country Website</a></li>
+
+		<li><a href='https://mealdb-by-rakib.netlify.app/' target="_blank">React the meal db</a></li>
+
+		<li><a href='https://react-todo-app-by-rakib.netlify.app/' target="_blank">React Todo-List</a></li>
+
+		<li><a href='https://devoloper-rakib.github.io/Blog-Website/' target="_blank"> *** React BlogSite (
+				Best
+				Site so far ) </a></li>
+
+		<li><a href='https://devoloper-rakib.github.io/EntertainmentPart-1/' target="_blank">Entertainment</a>
+		</li>
+
+
+		<li><a href='https://devoloper-rakib.github.io/Weather-App/' target="_blank">Weather App</a></li>
+
+
+		<li><a href='https://devoloper-rakib.github.io/Simple-Calculator/' target="_blank">Simple Calculator</a>
+		</li>
+
+		<li><a href='https://devoloper-rakib.github.io/movie-api/' target="_blank">React Movie Api</a></li>
+
+		<li><a href='https://devoloper-rakib.github.io/E-shop/' target="_blank">Website E-Shop</a></li>
+
+		<li><a href='https://devoloper-rakib.github.io/Learn-EveryDay/' target="_blank">Website learn EveryDay</a></li>
+
+		<li><a href='https://devoloper-rakib.github.io/WORLD-AGENCY/' target="_blank">Website World Agency</a></li>
+
+		<li><a href='https://devoloper-rakib.github.io/Food-Hungry/' target="_blank">WebSite Food Hungry</a></li>
+
+		<li><a href='https://devoloper-rakib.github.io/Creative-Learner/' target="_blank">Website Creative Learner</a>
+		</li>
+
+		<li><a href='https://devoloper-rakib.github.io/Certify-Agency/' target="_blank">website Creatify Agency</a></li>
+
+
+		<li><a href='https://devoloper-rakib.github.io/Travel-Hunter/' target="_blank">website Travel Hunter</a></li>
+
+
+		<li><a href='https://devoloper-rakib.github.io/ELEGANCE/' target="_blank">website Elegance</a></li>
+
+		<li><a href='https://react-expense-app-by-rakib.netlify.app/' target="_blank">React Expense Tracker</a></li>
+
+
+	</ul>  -->
+
+
+
+	normal list of site link 
+	<----   
+	
+Short Project:
+
+digital clock with random color https://digitalclockrandom.netlify.app/
+simple product cart https://cart-html-css-js.netlify.app/
+simple slider ./Js-DOM-Project/3-Simple-JS-Dom-Project/2-slider/index.html
+advance Cart https://product-cart-html-css-js.netlify.app/
+guess the game https://guess-the-game-html-css-js.netlify.app/
+product cart 2 ./Js-DOM-Project/JS-Dom-project-Advance/Product-Cart2/index.html
+
+Games:
+
+the pick game https://the-pick-game.netlify.app/
+
+
+Dashboard:
+
+React Dash Board https://react-c-dashboard.netlify.app/
+chart DashBOard https://devoloper-rakib.github.io/chart-dashboard/
+responsive DashBoard https://devoloper-rakib.github.io/chart-dashboard/
+
+
+Entertainment:
+
+Entertainment https://devoloper-rakib.github.io/EntertainmentPart-1/
+Website:
+
+React Country Website https://dev-dex.netlify.app/
+the new Meal https://themealdbhtmlcssjs.netlify.app/
+React BlogSite (Best Site so far ) https://devoloper-rakib.github.io/Blog-Website/
+Weather App https://devoloper-rakib.github.io/Weather-App/
+Website E-Shop https://devoloper-rakib.github.io/E-shop/
+Website learn EveryDay https://devoloper-rakib.github.io/Learn-EveryDay/
+Website World Agency https://devoloper-rakib.github.io/WORLD-AGENCY/
+WebSite Food Hungry https://devoloper-rakib.github.io/Food-Hungry/
+website Creatify Agency https://devoloper-rakib.github.io/Certify-Agency/
+website Travel Hunter https://devoloper-rakib.github.io/Travel-Hunter/
+website Elegance https://devoloper-rakib.github.io/ELEGANCE/
+React Movie Api https://devoloper-rakib.github.io/movie-api/
+
+
+Blogsite:
+
+React BlogSite https://dev-dex.netlify.app/
+
+
+Short Project:
+
+Simple Calculator https://devoloper-rakib.github.io/Simple-Calculator/
+React Expense App https://react-expense-app-by-rakib.netlify.app/
+
+
+	  --->

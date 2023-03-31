@@ -1,0 +1,30 @@
+body {
+	line-height: 1.5;
+	font-family: sans-serif;
+}
+* {
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+}
+img {
+	max-width: 100%;
+	vertical-align: middle;
+}
+
+.gallery {
+	width: 100%;
+	display: block;
+	min-height: 100vh;
+	background-color: #2a2932;
+	padding: 100px 0;
+}
+
+.container {
+	max-width: 1170px;
+	margin: auto;
+}
