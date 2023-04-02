@@ -1,0 +1,29 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	outline: none;
+}
+html {
+	font-size: 67.5%;
+	letter-spacing: 1px;
+}
+
+main {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+}
+
+a,
+a:active {
+	text-decoration: none;
+}
+
+ul,
+li {
+	list-style: none;
+}
+
+.sideBar {
+	background-color: #fff;
+}

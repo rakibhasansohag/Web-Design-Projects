@@ -1,0 +1,22 @@
+.addTaskMain {
+	background-color: #d9f1f1;
+	padding: 1.5rem 10rem;
+	h1 {
+		margin: 1.3rem 0;
+		font-size: 2.4rem;
+		text-align: center;
+	}
+	.taskForm {
+		display: flex;
+		flex-direction: column;
+		gap: 0.8rem;
+		width: 100%; /// have to change letter
+		select {
+			padding: 0.765rem 0.9rem;
+			margin: 0 0 0 0.4rem;
+			outline: none;
+			border: 1px solid rgb(19, 18, 18);
+			border-radius: 0.567rem;
+		}
+	}
+}
