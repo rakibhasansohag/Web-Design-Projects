@@ -1,0 +1,31 @@
+.taskBoxes {
+	padding: 1.6rem 0;
+	h3 {
+		font-size: 2.8rem;
+		padding: 0.5rem 0;
+		margin: 10px 0;
+	}
+
+	.taskContainer {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2rem;
+		padding-right: 2.8rem;
+		.taskCard {
+			background-color: #9087fe;
+			padding: 1rem 1.5rem;
+			border-radius: 8px;
+			h4 {
+				font-size: 2.3rem;
+				font-weight: 400;
+			}
+			h4:nth-child(4) {
+				font-weight: 800;
+				color: brown;
+			}
+			p {
+				font-size: 2.5rem;
+			}
+		}
+	}
+}

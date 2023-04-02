@@ -12,6 +12,8 @@ html {
 main {
 	display: grid;
 	grid-template-columns: 1fr 2fr;
+	grid-gap: 2.3rem;
+	padding: 30px 0;
 }
 
 a,
