@@ -11,7 +11,7 @@ const init = {
 	deadLine: '', /// 2023-04-03
 };
 
-const AddTask = () => {
+const AddTask = ({ members, handleSetTasks }) => {
 	const [data, setData] = useState(init);
 
 	const handleChange = (e) => {
@@ -25,7 +25,9 @@ const AddTask = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		handleSetTasks(data);
 		console.log(data);
+		setData(init);
 	};
 
 	return (
@@ -46,6 +48,8 @@ const AddTask = () => {
 				>
 					<option value='none'>Select Category</option>
 					<option value='unit Test'>Unit Test</option>
+					<option value='Front-End'>Front-End</option>
+					<option value='Back-End'>Back-End</option>
 				</select>
 
 				<select
@@ -54,7 +58,12 @@ const AddTask = () => {
 					value={data.teamMember}
 				>
 					<option value='none'>Select Team</option>
-					<option value='Rakib Hasan'>Rakib Hasan</option>
+
+					{members.map((member, i) => (
+						<option key={i} value={member}>
+							{member}
+						</option>
+					))}
 				</select>
 
 				<InputBox

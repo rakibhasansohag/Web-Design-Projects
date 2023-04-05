@@ -1,20 +1,17 @@
 import React from 'react';
 import './teams.scss';
-const DisplayTeams = () => {
+const DisplayTeams = ({ members }) => {
 	return (
 		<div>
-			<div className='teamCard'>
-				<h1>Rakib Hasan</h1>
-			</div>
-			<div className='teamCard'>
-				<h1>Rakib Hasan</h1>
-			</div>
-			<div className='teamCard'>
-				<h1>Rakib Hasan</h1>
-			</div>
-			<div className='teamCard'>
-				<h1>Rakib Hasan</h1>
-			</div>
+			{members.length === 0 && <h1 className='teamCard'>Add Members</h1>}
+
+			{members?.map((member, i) => {
+				return (
+					<div key={i} className='teamCard'>
+						<h1>{member}</h1>
+					</div>
+				);
+			})}
 		</div>
 	);
 };
