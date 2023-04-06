@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Button from '../Shared/UI/Button/Button';
 import InputBox from '../Shared/UI/InputBOx/InputBox';
 import './addTask.scss';
+import { v4 as uuidv4 } from 'uuid';
 
 const init = {
 	taskName: '',
@@ -26,8 +27,9 @@ const AddTask = ({ members, handleSetTasks }) => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		handleSetTasks(data);
-		console.log(data);
+		let newDateWithId = { ...data, id: uuidv4() };
+		handleSetTasks(newDateWithId);
+
 		setData(init);
 	};
 
@@ -60,8 +62,8 @@ const AddTask = ({ members, handleSetTasks }) => {
 				>
 					<option value='none'>Select Team</option>
 
-					{members.map((member, i) => (
-						<option key={i} value={member}>
+					{members.map((member) => (
+						<option key={member.id} value={member}>
 							{member}
 						</option>
 					))}

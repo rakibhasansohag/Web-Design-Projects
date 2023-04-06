@@ -2,6 +2,10 @@ import React from 'react';
 import './task.scss';
 import TaskCard from './TaskCard';
 const AllPendingTask = ({ tasks }) => {
+	const handleFilter = (task) => {
+		return task.status === 'Pending';
+	};
+
 	return (
 		<div className='taskBoxes'>
 			<h3>All pending Task : </h3>
@@ -10,14 +14,15 @@ const AllPendingTask = ({ tasks }) => {
 
 				{tasks?.map((task, i) => {
 					return <TaskCard key={i} task={task} />;
-				})} */}{/* // good for error ignoring */}
-				
-				
-				
+				})} */}
+				{/* // good for error ignoring */}
+
 				{tasks.length === 0 ? (
 					<h1 className='taskIsEmpty'>task is empty</h1>
 				) : (
-					tasks.map((task, i) => <TaskCard key={i} task={task} />)
+					tasks
+						.filter(handleFilter)
+						.map((task) => <TaskCard key={task.id} task={task} />)
 				)}
 			</div>
 		</div>

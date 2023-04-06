@@ -19,7 +19,7 @@ const TaskCard = ({ task }) => {
 			<h4> {teamMember} </h4>
 			<h4>DeadLine : {deadLine}</h4>
 			<Button label='Edit' />
-			<Button label='Complete' />
+			<Button label='Completed' />
 		</div>
 	);
 };

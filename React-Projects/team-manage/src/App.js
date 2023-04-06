@@ -12,6 +12,7 @@ const initialValue = [
 		teamMember: 'rakib Hasan Sohag',
 		deadLine: '2023-04-10',
 		status: 'Pending',
+		id: '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d',
 	},
 	{
 		taskName: '	make an copy paste app',
@@ -19,6 +20,7 @@ const initialValue = [
 		teamMember: ' Sohag hasan',
 		deadLine: '2023-04-10',
 		status: 'Completed',
+		id: '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb5d',
 	},
 	{
 		taskName: '	make an an back-end server',
@@ -26,6 +28,7 @@ const initialValue = [
 		teamMember: 'rakib Hasan ',
 		deadLine: '2023-04-10',
 		status: 'Pending',
+		id: '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb9d',
 	},
 ];
 
