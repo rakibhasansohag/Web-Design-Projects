@@ -1,14 +1,24 @@
 import React from 'react';
 import './task.scss';
 import TaskCard from './TaskCard';
-const AllPendingTask = () => {
+const AllPendingTask = ({ tasks }) => {
 	return (
 		<div className='taskBoxes'>
 			<h3>All pending Task : </h3>
 			<div className='taskContainer'>
-				<TaskCard />
-				<TaskCard />
-				<TaskCard />
+				{/* {tasks.length === 0 && <h1 className='taskIsEmpty'>task is empty</h1>}
+
+				{tasks?.map((task, i) => {
+					return <TaskCard key={i} task={task} />;
+				})} */}{/* // good for error ignoring */}
+				
+				
+				
+				{tasks.length === 0 ? (
+					<h1 className='taskIsEmpty'>task is empty</h1>
+				) : (
+					tasks.map((task, i) => <TaskCard key={i} task={task} />)
+				)}
 			</div>
 		</div>
 	);

@@ -9,6 +9,7 @@ const init = {
 	category: '', /// unit test
 	teamMember: '', /// Rakib Hasan
 	deadLine: '', /// 2023-04-03
+	status: 'Pending', /// it depends on status ( Completed ,Pending)
 };
 
 const AddTask = ({ members, handleSetTasks }) => {
@@ -20,7 +21,7 @@ const AddTask = ({ members, handleSetTasks }) => {
 
 		oldData[name] = value;
 		setData(oldData);
-		console.log(data);
+		// console.log(data); /// showing the onchange event
 	};
 
 	const handleSubmit = (e) => {

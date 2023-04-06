@@ -6,9 +6,9 @@ const AllCompletedTask = () => {
 		<div className='taskBoxes'>
 			<h3>All Completed Task : </h3>
 			<div className='taskContainer'>
+				{/* <TaskCard />
 				<TaskCard />
-				<TaskCard />
-				<TaskCard />
+				<TaskCard /> */}
 			</div>
 		</div>
 	);

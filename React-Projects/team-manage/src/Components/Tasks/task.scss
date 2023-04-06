@@ -1,4 +1,5 @@
 .taskBoxes {
+	text-transform: capitalize;
 	padding: 1.6rem 0;
 	h3 {
 		font-size: 2.8rem;
@@ -28,4 +29,10 @@
 			}
 		}
 	}
+}
+
+.taskIsEmpty {
+	color: black;
+	text-transform: capitalize;
+	font-size: 3.5rem;
 }

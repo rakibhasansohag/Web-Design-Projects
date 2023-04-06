@@ -3,11 +3,11 @@ import AllCompletedTask from './AllCompletedTask';
 import AllPendingTask from './AllPendingTask';
 import FilterHeader from './FilterHeader';
 import './task.scss';
-const Task = () => {
+const Task = ({ tasks }) => {
 	return (
 		<div>
 			<FilterHeader />
-			<AllPendingTask />
+			<AllPendingTask tasks={tasks} />
 			<AllCompletedTask />
 		</div>
 	);
