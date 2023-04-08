@@ -1,0 +1,124 @@
+{
+	"projects": [
+		{
+			"imgSrc": "/mainImages/website-blog-site.png",
+			"filter": "blog-site"
+		},
+		{
+			"imgSrc": "/mainImages/react_blogSite.png",
+			"filter": "blog-site"
+		},
+		{
+			"imgSrc": "/mainImages/react_dashboard.png",
+			"filter": "dashboard"
+		},
+		{
+			"imgSrc": "/mainImages/react_dashboard.png",
+			"filter": "dashboard"
+		},
+		{
+			"imgSrc": "/mainImages/Responsive_dashboard.png",
+			"filter": "dashboard"
+		},
+		{
+			"imgSrc": "/mainImages/product_cart.png",
+			"filter": "cart"
+		},
+		{
+			"imgSrc": "/mainImages/the_meal_db.png",
+			"filter": "short-project"
+		},
+		{
+			"imgSrc": "/mainImages/",
+			"filter": "dashboard"
+		},
+		{
+			"imgSrc": "/mainImages/",
+			"filter": "dashboard"
+		},
+		{
+			"imgSrc": "/mainImages/",
+			"filter": "dashboard"
+		},
+		{
+			"imgSrc": "/mainImages/",
+			"filter": "dashboard"
+		},
+		{
+			"imgSrc": "/mainImages/",
+			"filter": "dashboard"
+		},
+		{
+			"imgSrc": "/mainImages/",
+			"filter": "dashboard"
+		},
+		{
+			"imgSrc": "/mainImages/",
+			"filter": "dashboard"
+		},
+		{
+			"imgSrc": "/mainImages/",
+			"filter": "dashboard"
+		},
+		{
+			"imgSrc": "/mainImages/",
+			"filter": "dashboard"
+		},
+		{
+			"imgSrc": "/mainImages/",
+			"filter": "dashboard"
+		},
+		{
+			"imgSrc": "/mainImages/",
+			"filter": "dashboard"
+		},
+		{
+			"imgSrc": "/mainImages/",
+			"filter": "dashboard"
+		},
+		{
+			"imgSrc": "/mainImages/",
+			"filter": "dashboard"
+		},
+		{
+			"imgSrc": "/mainImages/",
+			"filter": "dashboard"
+		},
+		{
+			"imgSrc": "/mainImages/",
+			"filter": "dashboard"
+		},
+		{
+			"imgSrc": "/mainImages/",
+			"filter": "dashboard"
+		},
+		{
+			"imgSrc": "/mainImages/",
+			"filter": "dashboard"
+		},
+		{
+			"imgSrc": "/mainImages/",
+			"filter": "dashboard"
+		},
+		{
+			"imgSrc": "/mainImages/",
+			"filter": "dashboard"
+		},
+		{
+			"imgSrc": "/mainImages/",
+			"filter": "dashboard"
+		},
+		{
+			"imgSrc": "/mainImages/",
+			"filter": "dashboard"
+		},
+		{
+			"imgSrc": "/mainImages/",
+			"filter": "dashboard"
+		},
+		{
+			"imgSrc": "/mainImages/",
+			"filter": "dashboard"
+		}
+	]
+}
