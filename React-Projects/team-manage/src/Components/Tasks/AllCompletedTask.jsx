@@ -1,7 +1,7 @@
 import React from 'react';
 import './task.scss';
 import TaskCard from './TaskCard';
-const AllCompletedTask = ({ tasks }) => {
+const AllCompletedTask = ({ tasks, editEnable }) => {
 	return (
 		<div className='taskBoxes'>
 			<h3>All Completed Task : </h3>
@@ -11,7 +11,9 @@ const AllCompletedTask = ({ tasks }) => {
 				) : (
 					tasks
 						.filter((task) => task.status === 'Completed')
-						.map((task) => <TaskCard key={task.id} task={task} />)
+						.map((task) => (
+							<TaskCard editEnable={editEnable} key={task.id} task={task} />
+						))
 				)}
 			</div>
 		</div>

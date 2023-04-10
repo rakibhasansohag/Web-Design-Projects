@@ -12,6 +12,9 @@ Task 1.1: Add new Team members And Display : From [member Name]
 Task 1.2 : Task(card) Functionality
 		Point 1: Display [ Date, Task Name, Member , Button { Done || Delete } , edit ]
 
+Task 1.3 : Edit And Delete Button
+
+
 Task 2 : Display All pending Task In Pending Box .
 Task 3 : Display All Completed(done) Task In Complete Box .
 

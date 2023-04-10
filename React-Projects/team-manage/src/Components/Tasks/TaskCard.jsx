@@ -1,10 +1,10 @@
 import React from 'react';
 import Button from '../Shared/UI/Button/Button';
 import './task.scss';
-const TaskCard = ({ task }) => {
-	console.log(task);
+const TaskCard = ({ task, editEnable }) => {
+	// console.log(task);
 	const { taskName, category, teamMember, status, deadLine } = task;
-	console.log(taskName, category, teamMember, status);
+	// console.log(taskName, category, teamMember, status);
 	return (
 		<div className='taskCard'>
 			{/* <p>this is unit test </p>
@@ -18,7 +18,7 @@ const TaskCard = ({ task }) => {
 			<h4>Category : {category} </h4>
 			<h4> {teamMember} </h4>
 			<h4>DeadLine : {deadLine}</h4>
-			<Button label='Edit' />
+			<Button onClick={() => editEnable(task)} label='Edit' />
 			<Button label='Completed' />
 		</div>
 	);

@@ -1,7 +1,7 @@
 import React from 'react';
 import './task.scss';
 import TaskCard from './TaskCard';
-const AllPendingTask = ({ tasks }) => {
+const AllPendingTask = ({ tasks, editEnable }) => {
 	const handleFilter = (task) => {
 		return task.status === 'Pending';
 	};
@@ -22,7 +22,9 @@ const AllPendingTask = ({ tasks }) => {
 				) : (
 					tasks
 						.filter(handleFilter)
-						.map((task) => <TaskCard key={task.id} task={task} />)
+						.map((task) => (
+							<TaskCard editEnable={editEnable} key={task.id} task={task} />
+						))
 				)}
 			</div>
 		</div>

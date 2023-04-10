@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import Button from '../Shared/UI/Button/Button';
 import InputBox from '../Shared/UI/InputBOx/InputBox';
@@ -13,7 +13,7 @@ const init = {
 	status: 'Pending', /// it depends on status ( Completed ,Pending)
 };
 
-const AddTask = ({ members, handleSetTasks }) => {
+const AddTask = ({ members, handleSetTasks, editedData }) => {
 	const [data, setData] = useState(init);
 
 	const handleChange = (e) => {
@@ -33,9 +33,18 @@ const AddTask = ({ members, handleSetTasks }) => {
 		setData(init);
 	};
 
+	useEffect(() => {
+		if (editedData !== '') {
+			setData(editedData);
+		}
+	}, [editedData]);
+
+	// console.log(editedData);
+	console.log(data.teamMember);
+	console.log(members);
 	return (
 		<div className='addTaskMain'>
-			<h1>Add Task</h1>
+			<h1>{editedData ? 'Update Task' : 'Add Task'}</h1>
 			<form onSubmit={handleSubmit} className='taskForm'>
 				<InputBox
 					name='taskName'
@@ -43,27 +52,21 @@ const AddTask = ({ members, handleSetTasks }) => {
 					value={data.taskName}
 					onChange={handleChange}
 				/>
-
-				<select
-					name='category'
-					onChange={handleChange}
-					defaultValue={data.category}
-				>
+				<select name='category' onChange={handleChange} value={data.category}>
 					<option value='none'>Select Category</option>
 					<option value='unit Test'>Unit Test</option>
 					<option value='Front-End'>Front-End</option>
 					<option value='Back-End'>Back-End</option>
 				</select>
-
 				<select
 					name='teamMember'
 					onChange={handleChange}
-					value={data.teamMember}
+					value={data.teamMember || ''}
 				>
 					<option value='none'>Select Team</option>
 
-					{members.map((member) => (
-						<option key={member.id} value={member}>
+					{members.map((member, id) => (
+						<option key={id} value={member.toString()}>
 							{member}
 						</option>
 					))}
@@ -75,7 +78,6 @@ const AddTask = ({ members, handleSetTasks }) => {
 					type='date'
 					value={data.deadLine}
 				/>
-
 				<Button label='Add Task' type='submit' />
 			</form>
 		</div>

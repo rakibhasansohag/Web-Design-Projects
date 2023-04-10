@@ -1,8 +1,8 @@
 import React from 'react';
 import './button.scss';
-const Button = ({ type = 'button', label, children }) => {
+const Button = ({ type = 'button', label, children, ...rest }) => {
 	return (
-		<button type={type} className='submit-btn'>
+		<button type={type} {...rest} className='submit-btn'>
 			{label || children}
 		</button>
 	);
