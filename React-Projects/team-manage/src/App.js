@@ -7,6 +7,7 @@ import Teams from './Components/Teams/Teams';
 import { initialValue } from './DataBase/TaskData';
 import { teamMembers } from './DataBase/TaskData';
 function App() {
+	// point : initial State values
 	const [members, setMembers] = useState([...teamMembers]);
 	const [tasks, setTasks] = useState([...initialValue]);
 	const [editedData, setEditedData] = useState('');
@@ -22,16 +23,27 @@ function App() {
 		// setMembers(oldData);
 	};
 
-	const handleSetTasks = (task) => {
-		setTasks((prev) => [...prev, task]);
+	const handleSetTasks = (task, type) => {
+		if (type === 'Add') {
+			let oldData = [...tasks];
+			oldData.push(task);
+			setTasks(oldData);
+		} else if (type === 'Update') {
+			let oldData = [...tasks];
+			let index = oldData.findIndex((item) => item.id === task.id);
+			oldData[index] = task;
+			setTasks(oldData);
+			setEditedData('');
+		}
 	};
+
 	// console.log('task', tasks);
 	// console.log(members);
 	// console.log(tasks);
 
 	const editEnable = (data) => {
 		setEditedData(data);
-		console.log(editedData, 'clicked');
+		// console.log(editedData, 'clicked');
 	};
 	return (
 		<div className='App'>

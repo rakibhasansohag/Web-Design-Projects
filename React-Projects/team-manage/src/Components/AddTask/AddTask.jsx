@@ -14,7 +14,8 @@ const init = {
 };
 
 const AddTask = ({ members, handleSetTasks, editedData }) => {
-	const [data, setData] = useState(init);
+	const [data, setData] = useState({ ...init });
+	const [buttonLabel, setButtonLabel] = useState('Add');
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -27,24 +28,32 @@ const AddTask = ({ members, handleSetTasks, editedData }) => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		let newDateWithId = { ...data, id: uuidv4() };
-		handleSetTasks(newDateWithId);
 
-		setData(init);
+		if (editedData !== '') {
+			handleSetTasks(data, 'Update');
+			setData(init);
+			setButtonLabel('Add');
+		} else {
+			let newDateWithId = { ...data, id: uuidv4() };
+			handleSetTasks(newDateWithId, 'Add');
+			setData(init);
+		}
 	};
 
 	useEffect(() => {
 		if (editedData !== '') {
-			setData(editedData);
+			setData({ ...editedData });
+			setButtonLabel('Update');
 		}
 	}, [editedData]);
 
 	// console.log(editedData);
-	console.log(data.teamMember);
-	console.log(members);
+	// console.log(data.teamMember);
+	// console.log(members);
+
 	return (
 		<div className='addTaskMain'>
-			<h1>{editedData ? 'Update Task' : 'Add Task'}</h1>
+			<h1>{buttonLabel}</h1>
 			<form onSubmit={handleSubmit} className='taskForm'>
 				<InputBox
 					name='taskName'
@@ -54,7 +63,7 @@ const AddTask = ({ members, handleSetTasks, editedData }) => {
 				/>
 				<select name='category' onChange={handleChange} value={data.category}>
 					<option value='none'>Select Category</option>
-					<option value='unit Test'>Unit Test</option>
+					<option value='Unit-Test'>Unit Test</option>
 					<option value='Front-End'>Front-End</option>
 					<option value='Back-End'>Back-End</option>
 				</select>
@@ -71,14 +80,13 @@ const AddTask = ({ members, handleSetTasks, editedData }) => {
 						</option>
 					))}
 				</select>
-
 				<InputBox
 					name='deadLine'
 					onChange={handleChange}
 					type='date'
 					value={data.deadLine}
 				/>
-				<Button label='Add Task' type='submit' />
+				<Button label={buttonLabel} type='submit' />
 			</form>
 		</div>
 	);
