@@ -29,11 +29,21 @@ function App() {
 			oldData.push(task);
 			setTasks(oldData);
 		} else if (type === 'Update') {
-			let oldData = [...tasks];
-			let index = oldData.findIndex((item) => item.id === task.id);
-			oldData[index] = task;
-			setTasks(oldData);
-			setEditedData('');
+			// ask for confirmation
+
+			if (window.confirm('Are you sure you want to update the task ?')) {
+				if (window.confirm('Are you really sure ?')) {
+					let oldData = [...tasks];
+					let index = oldData.findIndex((item) => item.id === task.id);
+					oldData[index] = task;
+					setTasks(oldData);
+					setEditedData('');
+
+					/// show alert after updateing the task
+
+					alert('your Task has been modified successfully');
+				}
+			}
 		}
 	};
 
