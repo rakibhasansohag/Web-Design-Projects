@@ -29,6 +29,13 @@ const AddTask = ({ members, handleSetTasks, editedData }) => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
+		const { taskName, category, teamMember, deadLine } = data;
+
+		if (!taskName || !category || !teamMember || !deadLine) {
+			alert('Please fill up all the fields or try again');
+			return;
+		}
+
 		if (editedData !== '') {
 			handleSetTasks(data, 'Update');
 			setData(init);
