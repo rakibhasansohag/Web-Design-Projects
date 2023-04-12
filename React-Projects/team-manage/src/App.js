@@ -11,7 +11,7 @@ function App() {
 	const [members, setMembers] = useState([...teamMembers]);
 	const [tasks, setTasks] = useState([...initialValue]);
 	const [editedData, setEditedData] = useState('');
-
+	const [shouldUpdate, setShouldUpdate] = useState(false);
 	const handleSetMembers = (data) => {
 		// error const words = data.split(' ');
 		// error setMembers([...members, ...words]);
@@ -23,6 +23,17 @@ function App() {
 		// setMembers(oldData);
 	};
 
+	// const handleSetTasks = (task, type) => {
+	// 	if (type === 'Add') {
+	// 		let oldData = [...tasks];
+	// 		oldData.push(task);
+	// 		setTasks(oldData);
+	// 	} else if (type === 'Update') {
+	// 		// ask for confirmation
+
+	// 	}
+	// };
+
 	const handleSetTasks = (task, type) => {
 		if (type === 'Add') {
 			let oldData = [...tasks];
@@ -30,29 +41,41 @@ function App() {
 			setTasks(oldData);
 		} else if (type === 'Update') {
 			// ask for confirmation
-
 			if (window.confirm('Are you sure you want to update the task ?')) {
 				if (window.confirm('Are you really sure ?')) {
 					let oldData = [...tasks];
 					let index = oldData.findIndex((item) => item.id === task.id);
 					oldData[index] = task;
 					setTasks(oldData);
+
+					/// show alert after updating the task
+					alert('Your task has been modified successfully');
+
 					setEditedData('');
-
-					/// show alert after updateing the task
-
-					alert('your Task has been modified successfully');
+				} else {
+					// Do not reset editedData if the user clicks "No" on the second confirmation prompt
+					setEditedData('');
 				}
+			} else {
+				// Do same thing if the user clicks "No" on the first confirmation prompt
+				setEditedData('');
 			}
 		}
 	};
-
 	// console.log('task', tasks);
 	// console.log(members);
 	// console.log(tasks);
 
 	const editEnable = (data) => {
-		setEditedData(data);
+		const confirmResult = window.confirm(
+			'Are you sure you want to edit this task?',
+		);
+		if (confirmResult) {
+			setEditedData(data);
+		} else {
+			setEditedData('');
+		}
+
 		// console.log(editedData, 'clicked');
 	};
 	return (
