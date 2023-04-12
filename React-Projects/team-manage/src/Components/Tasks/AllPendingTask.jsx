@@ -1,16 +1,19 @@
 import React from 'react';
 import './task.scss';
 import TaskCard from './TaskCard';
-const AllPendingTask = ({ tasks, editEnable, handleSetTasks }) => {
-	let filterData = 'All';
-
+const AllPendingTask = ({
+	sortFilterData,
+	tasks,
+	editEnable,
+	handleSetTasks,
+}) => {
 	const handleFilter = (task) => {
 		return task.status === 'Pending';
 	};
 	const handleSorting = (task) => {
-		if (task.category === filterData) {
+		if (task.category === sortFilterData) {
 			return task;
-		} else if (filterData === 'All') {
+		} else if (sortFilterData === 'All') {
 			return task;
 		}
 	};

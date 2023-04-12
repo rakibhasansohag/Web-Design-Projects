@@ -14,6 +14,8 @@ Task 1.2 : Task(card) Functionality
 
 Task 1.3 : Edit And Delete Button
 
+Task 1.4 : there will be an filter button on completed container ( where it will show who was assigned to that task)
+
 
 Task 2 : Display All pending Task In Pending Box .
 Task 3 : Display All Completed(done) Task In Complete Box .
