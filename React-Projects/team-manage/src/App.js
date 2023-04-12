@@ -11,6 +11,12 @@ function App() {
 	const [members, setMembers] = useState([...teamMembers]);
 	const [tasks, setTasks] = useState([...initialValue]);
 	const [editedData, setEditedData] = useState('');
+	const [search, setSearch] = useState('');
+
+	const handleSearchChange = (e) => {
+		// e.preventDefault();
+		setSearch(e.target.value);
+	};
 
 	const handleSetMembers = (data) => {
 		// error const words = data.split(' ');
@@ -67,9 +73,8 @@ function App() {
 			setTasks(oldData);
 		}
 	};
-	// console.log('task', tasks);
-	// console.log(members);
-	// console.log(tasks);
+
+	console.log(search);
 
 	const editEnable = (data) => {
 		const confirmResult = window.confirm(
@@ -85,7 +90,7 @@ function App() {
 	};
 	return (
 		<div className='App'>
-			<Header />
+			<Header handleSearchChange={handleSearchChange} />
 
 			<main className='layout'>
 				<div className='sideBar'>
@@ -98,6 +103,7 @@ function App() {
 				</div>
 				<div className='mainContent'>
 					<Task
+						search={search}
 						handleSetTasks={handleSetTasks}
 						editEnable={editEnable}
 						tasks={tasks}
