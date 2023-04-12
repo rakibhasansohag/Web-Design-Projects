@@ -30,7 +30,11 @@ Task 3 : Display All Completed(done) Task In Complete Box .
 Task 1 : Total Pending Task
 Task 2 : Total Completed Task
 Task 3 : Total Members Task
-
+Task 4 : have to load More  completed tasks
+Task 5 : have to add more animation to the project
+Task 6 : have to add more styling to the project
+Task 7 : have to add more animation to input filed
+Task 8 : have to add sound in the cancel button and add button or update button
 
  -->
 
