@@ -20,9 +20,13 @@
 				font-size: 2.3rem;
 				font-weight: 400;
 			}
-			h4:nth-child(4) {
+			h4:nth-child(4) span {
 				font-weight: 800;
 				color: brown;
+			}
+			h4:nth-child(2) span {
+				color: #fff;
+				font-weight: 600;
 			}
 			p {
 				font-size: 2.5rem;

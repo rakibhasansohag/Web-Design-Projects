@@ -2,10 +2,18 @@ import React from 'react';
 import './task.scss';
 import TaskCard from './TaskCard';
 const AllPendingTask = ({ tasks, editEnable, handleSetTasks }) => {
+	let filterData = 'All';
+
 	const handleFilter = (task) => {
 		return task.status === 'Pending';
 	};
-
+	const handleSorting = (task) => {
+		if (task.category === filterData) {
+			return task;
+		} else if (filterData === 'All') {
+			return task;
+		}
+	};
 	return (
 		<div className='taskBoxes'>
 			<h3>All pending Task : </h3>
@@ -22,6 +30,7 @@ const AllPendingTask = ({ tasks, editEnable, handleSetTasks }) => {
 				) : (
 					tasks
 						.filter(handleFilter)
+						.filter(handleSorting)
 						.map((task) => (
 							<TaskCard
 								editEnable={editEnable}

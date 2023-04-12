@@ -16,9 +16,13 @@ const TaskCard = ({ task, editEnable, handleSetTasks }) => {
 			<Button label='Complete' /> */}
 
 			<p>{taskName} </p>
-			<h4>Category : {category} </h4>
+			<h4>
+				Category : <span>{category}</span>{' '}
+			</h4>
 			<h4> {teamMember} </h4>
-			<h4>DeadLine : {deadLine}</h4>
+			<h4>
+				DeadLine : <span>{deadLine}</span>
+			</h4>
 			<Button onClick={() => editEnable(task)} label='Edit' />
 
 			{task.status === 'Pending' && (
