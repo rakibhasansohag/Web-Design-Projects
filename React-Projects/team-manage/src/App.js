@@ -11,7 +11,7 @@ function App() {
 	const [members, setMembers] = useState([...teamMembers]);
 	const [tasks, setTasks] = useState([...initialValue]);
 	const [editedData, setEditedData] = useState('');
-	const [shouldUpdate, setShouldUpdate] = useState(false);
+
 	const handleSetMembers = (data) => {
 		// error const words = data.split(' ');
 		// error setMembers([...members, ...words]);
@@ -60,6 +60,11 @@ function App() {
 				// Do same thing if the user clicks "No" on the first confirmation prompt
 				setEditedData('');
 			}
+		} else if (type === 'Completed') {
+			let oldData = [...tasks];
+			let index = oldData.findIndex((item) => item.id === task.id);
+			oldData[index].status = 'Completed';
+			setTasks(oldData);
 		}
 	};
 	// console.log('task', tasks);
@@ -92,7 +97,11 @@ function App() {
 					<Teams handleSetMembers={handleSetMembers} members={members} />
 				</div>
 				<div className='mainContent'>
-					<Task editEnable={editEnable} tasks={tasks} />
+					<Task
+						handleSetTasks={handleSetTasks}
+						editEnable={editEnable}
+						tasks={tasks}
+					/>
 				</div>
 			</main>
 		</div>

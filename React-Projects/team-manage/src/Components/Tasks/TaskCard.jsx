@@ -1,10 +1,11 @@
 import React from 'react';
 import Button from '../Shared/UI/Button/Button';
 import './task.scss';
-const TaskCard = ({ task, editEnable }) => {
+const TaskCard = ({ task, editEnable, handleSetTasks }) => {
 	// console.log(task);
 	const { taskName, category, teamMember, status, deadLine } = task;
 	// console.log(taskName, category, teamMember, status);
+
 	return (
 		<div className='taskCard'>
 			{/* <p>this is unit test </p>
@@ -19,7 +20,13 @@ const TaskCard = ({ task, editEnable }) => {
 			<h4> {teamMember} </h4>
 			<h4>DeadLine : {deadLine}</h4>
 			<Button onClick={() => editEnable(task)} label='Edit' />
-			<Button label='Completed' />
+
+			{task.status === 'Pending' && (
+				<Button
+					onClick={() => handleSetTasks(task, 'Completed')}
+					label='Completed'
+				/>
+			)}
 		</div>
 	);
 };
