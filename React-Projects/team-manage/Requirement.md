@@ -35,6 +35,9 @@ Task 5 : have to add more animation to the project
 Task 6 : have to add more styling to the project
 Task 7 : have to add more animation to input filed
 Task 8 : have to add sound in the cancel button and add button or update button
+Task 9 : have to add animation when the user click the completed button that box will be move to the completed box by waving animation
+Task 10 : the date filed will be automatically filled with the current date
+Task 11 : there will be an delete button in the completed box that will delete the task from the completed box
 
  -->
 
