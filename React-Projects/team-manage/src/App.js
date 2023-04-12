@@ -103,6 +103,7 @@ function App() {
 				</div>
 				<div className='mainContent'>
 					<Task
+						members={members}
 						search={search}
 						handleSetTasks={handleSetTasks}
 						editEnable={editEnable}

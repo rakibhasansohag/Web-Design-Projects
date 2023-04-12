@@ -3,7 +3,7 @@ import AllCompletedTask from './AllCompletedTask';
 import AllPendingTask from './AllPendingTask';
 import FilterHeader from './FilterHeader';
 import './task.scss';
-const Task = ({ tasks, editEnable, handleSetTasks, search }) => {
+const Task = ({ members, tasks, editEnable, handleSetTasks, search }) => {
 	// point let completedTask = tasks.filter((task) => task.status === 'Completed'); for learning purposes
 
 	const [sortFilterData, setSortFilterData] = useState('All');
@@ -14,7 +14,11 @@ const Task = ({ tasks, editEnable, handleSetTasks, search }) => {
 
 	return (
 		<div>
-			<FilterHeader handleFilter={handleFilter} />
+			<FilterHeader
+				tasks={tasks}
+				members={members.length}
+				handleFilter={handleFilter}
+			/>
 			<AllPendingTask
 				search={search}
 				handleSetTasks={handleSetTasks}
