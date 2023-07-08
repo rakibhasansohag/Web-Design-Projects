@@ -329,12 +329,23 @@ btnClose.addEventListener('click', function (e) {
 
 // todo : sort movements (BTN ASCENDING )
 let sorted = false;
-btnSort.addEventListener('click', function (e) {
-	e.preventDefault();
+let sortButtonClickCount = 0;
+btnSort.addEventListener(
+	'click',
+	function (e) {
+		e.preventDefault();
+		sortButtonClickCount++;
+		displayMovements(currentAccount.movements, !sorted);
+		sorted = !sorted;
 
-	displayMovements(currentAccount.movements, !sorted);
-	sorted = !sorted;
-});
+		if (sortButtonClickCount === 4) {
+			alert('You are a hacker !');
+		} else if (sortButtonClickCount === 9) {
+			alert('You clicked the sort button multiple times!');
+		}
+	},
+	1000,
+);
 
 // todo : Function to show account details in placeholder
 
@@ -366,4 +377,15 @@ if (!localStorage.getItem('visited')) {
 	// Make placeholders editable
 	inputLoginUsername.removeAttribute('disabled');
 	inputLoginPin.removeAttribute('disabled');
+}
+
+// todo: Debounce function to limit the frequency of function calls
+function debounce(func, delay) {
+	let timeoutId;
+	return (...args) => {
+		if (timeoutId) clearTimeout(timeoutId);
+		timeoutId = setTimeout(() => {
+			func.apply(null, args);
+		}, delay);
+	};
 }
