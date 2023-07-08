@@ -1,0 +1,296 @@
+// BANKIST APP
+
+// All the Data we need for the app
+const account1 = {
+	owner: 'Rakib Hasan Sohag',
+	movements: [400, 650, -1200, 300, -450, -80, 100, 800],
+	interestRate: 1.2, // %
+	pin: 1111,
+};
+
+const account2 = {
+	owner: 'Rakib Hasan',
+	movements: [1000, -2000, 300, -50, -300, -1000, 500, -10],
+	interestRate: 1.5,
+	pin: 2222,
+};
+
+const account3 = {
+	owner: 'Shakil Hasan',
+	movements: [200, -100, 450, -100, -20, 50, 400, -460],
+	interestRate: 0.7,
+	pin: 3333,
+};
+
+const account4 = {
+	owner: 'Billal Hossain',
+	movements: [100, 500, 200, 50, 90],
+	interestRate: 1,
+	pin: 4444,
+};
+
+const account5 = {
+	owner: 'Sohan Hasan',
+	movements: [200, 1000, -300, 70, 120],
+	interestRate: 1,
+	pin: 4444,
+};
+
+const accounts = [account1, account2, account3, account4, account5];
+
+// Elements
+const labelWelcome = document.querySelector('.welcome');
+const labelDate = document.querySelector('.date');
+const labelBalance = document.querySelector('.balance__value');
+const labelSumIn = document.querySelector('.summary__value--in');
+const labelSumOut = document.querySelector('.summary__value--out');
+const labelSumInterest = document.querySelector('.summary__value--interest');
+const labelTimer = document.querySelector('.timer');
+
+const containerApp = document.querySelector('.app');
+const containerMovements = document.querySelector('.movements');
+
+const btnLogin = document.querySelector('.login__btn');
+const btnTransfer = document.querySelector('.form__btn--transfer');
+const btnLoan = document.querySelector('.form__btn--loan');
+const btnClose = document.querySelector('.form__btn--close');
+const btnSort = document.querySelector('.btn--sort');
+
+const inputLoginUsername = document.querySelector('.login__input--user');
+const inputLoginPin = document.querySelector('.login__input--pin');
+const inputTransferTo = document.querySelector('.form__input--to');
+const inputTransferAmount = document.querySelector('.form__input--amount');
+const inputLoanAmount = document.querySelector('.form__input--loan-amount');
+const inputCloseUsername = document.querySelector('.form__input--user');
+const inputClosePin = document.querySelector('.form__input--pin');
+
+/////////////////////////////////////////////////// point : bankist app
+/////////////////////////////////////////////////
+
+/// display movements
+const displayMovements = function (movements, sort = false) {
+	containerMovements.innerHTML = '';
+
+	// todo : sort movements
+
+	const sortingMovements = sort
+		? movements.slice().sort((a, b) => a - b)
+		: movements;
+
+	sortingMovements.forEach(function (movement, index) {
+		const type = movement > 0 ? 'deposit' : 'withdrawal';
+
+		const html = `
+
+		<div class="movements__row">
+			<div class="movements__type movements__type--${type}" > ${type} ${
+			index + 1
+		}</div>
+
+			<div class="movements__value ">   ${movement} €</div>
+
+		</div>
+
+		`;
+
+		containerMovements.insertAdjacentHTML('afterbegin', html); // afterbegin : insert html at the beginning of the container
+	});
+};
+
+/// display balance
+const calcDisplayBalance = function (acc) {
+	const balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
+	acc.balance = balance;
+	labelBalance.textContent = `${balance} €`;
+};
+
+const calcDisplaySummary = function (acc) {
+	const incomes = acc.movements
+		.filter((mov) => mov > 0)
+		.reduce((acc, cur) => acc + cur, 0);
+
+	labelSumIn.textContent = `${incomes} €`;
+	const outcomes = acc.movements
+		.filter((mov) => mov < 0)
+		.reduce((acc, cur) => Math.trunc(acc + cur), 0);
+	labelSumOut.textContent = `${Math.abs(outcomes)} €`;
+
+	const interestRate = acc.movements
+		.filter((mov) => mov > 0)
+		.map((deposit) => (deposit * acc.interestRate) / 100)
+		.filter((int, i, arr) => {
+			// console.log(arr);
+
+			return int >= 1;
+		})
+		.reduce((acc, int) => acc + int, 0);
+	labelSumInterest.textContent = `${interestRate} €`;
+};
+
+// calcDisplaySummary(account1.movements);
+
+/// display summary
+const createUserNames = function (accounts) {
+	accounts.forEach((account) => {
+		account.username = account.owner
+			.toLowerCase()
+			.split(' ')
+			.map((name) => name[0])
+			.join('');
+	});
+};
+
+createUserNames(accounts);
+
+// todo : Update UI
+
+function updateUI(acc) {
+	// display movements
+	displayMovements(acc.movements);
+
+	// display balance
+	calcDisplayBalance(acc);
+
+	// display summary
+	calcDisplaySummary(acc);
+}
+
+// todo : Event handler
+let currentAccount;
+
+btnLogin.addEventListener('click', function (e) {
+	e.preventDefault();
+
+	currentAccount = accounts.find((acc) => {
+		return acc.username === inputLoginUsername.value;
+	});
+
+	// console.log(currentAccount);
+
+	if (currentAccount?.pin === Number(inputLoginPin.value)) {
+		// display UI and message
+		labelWelcome.textContent = `Welcome back, ${
+			currentAccount.owner.split(' ')[0]
+		}`;
+
+		containerApp.style.opacity = 100;
+
+		// clear input fields
+		inputLoginUsername.value = inputLoginPin.value = '';
+		inputLoginPin.blur();
+
+		// update UI
+		updateUI(currentAccount);
+	}
+});
+
+// todo : transfer money
+
+btnTransfer.addEventListener('click', function (e) {
+	e.preventDefault();
+	const amount = Number(inputTransferAmount.value);
+	const receiveAcc = accounts.find(
+		(acc) => acc.username === inputTransferTo.value,
+	).username
+		? accounts.find((acc) => acc.username === inputTransferTo.value)
+		: undefined;
+
+	console.log(amount, receiveAcc);
+
+	if (
+		amount > 0 &&
+		receiveAcc &&
+		currentAccount.balance >= amount &&
+		receiveAcc?.username !== currentAccount.username
+	) {
+		console.log('transfer valid');
+		// doing the transfer
+		currentAccount.movements.push(-amount);
+		receiveAcc.movements.push(amount);
+
+		// update UI
+
+		updateUI(currentAccount);
+
+		inputTransferAmount.value = inputTransferTo.value = '';
+		inputTransferAmount.blur();
+	}
+});
+
+// todo : request loan
+
+btnLoan.addEventListener('click', function (e) {
+	e.preventDefault();
+
+	const amount = Number(inputLoanAmount.value);
+
+	if (
+		amount > 0 &&
+		currentAccount.movements.some((mov) => mov >= amount * 0.1)
+	) {
+		// add movement
+		currentAccount.movements.push(amount);
+
+		// update UI
+		updateUI(currentAccount);
+	} else {
+		alert('You cannot request a loan ! :(');
+	}
+
+	inputLoanAmount.value = '';
+	inputLoanAmount.blur();
+});
+
+// todo : close account
+
+btnClose.addEventListener('click', function (e) {
+	e.preventDefault();
+
+	if (
+		Number(inputClosePin.value) === currentAccount.pin &&
+		inputCloseUsername.value === currentAccount.username
+	) {
+		// delete account
+
+		const index = accounts.findIndex(
+			(acc) => acc.username === currentAccount.username,
+		);
+
+		accounts.splice(index, 1);
+
+		// hide UI
+		containerApp.style.opacity = 0;
+
+		inputClosePin.value = inputCloseUsername.value = '';
+		inputClosePin.blur();
+
+		labelWelcome.textContent = 'Log in to get started';
+
+		// console.log(accounts);
+
+		// update UI
+
+		updateUI(currentAccount);
+
+		// display message
+
+		alert('Account deleted');
+
+		// clear input fields
+
+		inputClosePin.value = inputCloseUsername.value = '';
+
+		inputClosePin.blur();
+	} else {
+		alert('Wrong credentials');
+	}
+});
+
+// todo : sort movements (BTN ASCENDING )
+let sorted = false;
+btnSort.addEventListener('click', function (e) {
+	e.preventDefault();
+
+	displayMovements(currentAccount.movements, !sorted);
+	sorted = !sorted;
+});
