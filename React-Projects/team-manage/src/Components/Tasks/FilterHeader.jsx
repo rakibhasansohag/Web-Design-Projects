@@ -4,7 +4,6 @@ import Button from '../Shared/UI/Button/Button.jsx';
 const FilterHeader = ({ handleFilter, members, tasks }) => {
 	const buttonData = ['All', 'Unit-Test', 'Front-End', 'Back-End'];
 
-	
 	const pendingCount = tasks.filter((task) => task.status === 'Pending').length;
 	const completedCount = tasks.filter(
 		(task) => task.status === 'Completed',
