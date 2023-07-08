@@ -205,6 +205,13 @@ btnLogin.addEventListener('click', function (e) {
 
 		// update UI
 		updateUI(currentAccount);
+
+		alert('please check the console for the username and PIN :');
+
+		accounts.map((acc) => {
+			console.log(`UserName : ${acc.username} , PIN : ${acc.pin}  `);
+		});
+		console.log('please save those credentials');
 	} else {
 		const jumpScareSound = new Audio('jump_scare_sound.mp3');
 		jumpScareSound.play();
