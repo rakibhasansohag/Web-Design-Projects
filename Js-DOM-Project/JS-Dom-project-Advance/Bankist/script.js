@@ -155,7 +155,7 @@ function updateUI(acc) {
 	calcDisplaySummary(acc);
 }
 
-// todo : Event handler
+// todo : Event handler ( login )
 let currentAccount;
 
 btnLogin.addEventListener('click', function (e) {
@@ -181,6 +181,16 @@ btnLogin.addEventListener('click', function (e) {
 
 		// update UI
 		updateUI(currentAccount);
+	} else {
+		const jumpScareSound = new Audio('jump_scare_sound.mp3');
+		jumpScareSound.play();
+
+		const loginError = document.querySelector('.login');
+		loginError.classList.add('--error');
+
+		setTimeout(() => {
+			alert('Wrong username or PIN! Beware of what lurks in the darkness...');
+		}, jumpScareSound.duration * 3000);
 	}
 });
 
