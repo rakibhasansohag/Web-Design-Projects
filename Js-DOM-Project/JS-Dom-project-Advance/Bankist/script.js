@@ -38,6 +38,14 @@ const account5 = {
 
 const accounts = [account1, account2, account3, account4, account5];
 
+// todo : currency format
+const conversionRates = {
+	EUR: 1, // Base currency (Euro)
+	USD: 1.12, // Conversion rate from Euro to USD
+	bdt: 0.012, // Conversion rate from Euro to BDT
+	ire: 0.8, // Conversion rate from Euro to IRE
+};
+
 // Elements
 const labelWelcome = document.querySelector('.welcome');
 const labelDate = document.querySelector('.date');
@@ -389,3 +397,15 @@ function debounce(func, delay) {
 		}, delay);
 	};
 }
+
+// todo : currency converter
+
+const convertCurrency = function (balance, targetCurrency) {
+	const conversionRate = conversionRates[targetCurrency];
+	if (conversionRate) {
+		const convertedBalance = balance * conversionRate;
+		return convertedBalance.toFixed(2); // Adjust the decimal places as needed
+	} else {
+		return 'Unsupported currency';
+	}
+};
