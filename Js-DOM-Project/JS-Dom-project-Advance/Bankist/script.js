@@ -161,6 +161,22 @@ function updateUI(acc) {
 
 	// display summary
 	calcDisplaySummary(acc);
+
+	// todo : new features
+
+	const balanceValue = document.querySelector('.balance__value');
+	balanceValue.classList.add('animate-scale');
+
+	const summaryLabels = document.querySelectorAll('.summary__label');
+	const summaryValues = document.querySelectorAll('.summary__value');
+
+	summaryLabels.forEach((label) => {
+		label.classList.add('animate-slide');
+	});
+
+	summaryValues.forEach((value) => {
+		value.classList.add('animate-slide');
+	});
 }
 
 // todo : Event handler ( login )

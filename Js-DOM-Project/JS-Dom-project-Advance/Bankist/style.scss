@@ -165,6 +165,11 @@ h2 {
 .balance__value {
 	font-size: 4.5rem;
 	font-weight: 400;
+	transition: transform 0.5s ease-in-out;
+
+	&.animate-scale {
+		transform: scale(1.2);
+	}
 }
 
 /* MOVEMENTS start */
@@ -189,6 +194,8 @@ h2 {
 	opacity: 1;
 	transform: translateX(0);
 }
+
+// todo : new feature added
 
 .movements__type {
 	font-size: 1.1rem;
@@ -242,11 +249,17 @@ h2 {
 	font-weight: 500;
 	text-transform: uppercase;
 	margin-right: 0.8rem;
+	opacity: 0;
+	transform: translateY(20px);
+	transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 
 .summary__value {
 	font-size: 2.2rem;
 	margin-right: 2.5rem;
+	opacity: 0;
+	transform: translateY(-100%);
+	transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 
 	&--in,
 	&--interest {
@@ -256,6 +269,12 @@ h2 {
 	&--out {
 		color: $color-error;
 	}
+}
+
+.summary__label.animate-slide,
+.summary__value.animate-slide {
+	opacity: 1;
+	transform: translateY(0);
 }
 
 .btn--sort {
