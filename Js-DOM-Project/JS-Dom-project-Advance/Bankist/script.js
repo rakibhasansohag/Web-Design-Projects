@@ -30,10 +30,10 @@ const account4 = {
 };
 
 const account5 = {
-	owner: 'Sohan Hasan',
+	owner: 'Sohan Hasan Rahul',
 	movements: [200, 1000, -300, 70, 120],
-	interestRate: 1,
-	pin: 4444,
+	interestRate: 1.4,
+	pin: 5555,
 };
 
 const accounts = [account1, account2, account3, account4, account5];
