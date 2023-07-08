@@ -328,3 +328,35 @@ btnSort.addEventListener('click', function (e) {
 	displayMovements(currentAccount.movements, !sorted);
 	sorted = !sorted;
 });
+
+// todo : Function to show account details in placeholder
+
+const showAccountDetailsInPlaceholders = (account) => {
+	alert(
+		`First Account Details:\nUsername: ${account.username}\nPIN: ${account.pin}`,
+	);
+
+	inputLoginUsername.placeholder = account.username;
+	inputLoginUsername.removeAttribute('disabled');
+
+	inputLoginPin.placeholder = account.pin;
+	inputLoginPin.removeAttribute('disabled');
+};
+
+// Check if localStorage has the 'visited' key
+if (!localStorage.getItem('visited')) {
+	// Show alert with the details of the first account
+	// alert(
+	// 	`First Account Details:\nUsername: ${accounts[0].username}\nPIN: ${accounts[0].pin}`,
+	// );
+
+	// Set 'visited' key in localStorage
+	localStorage.setItem('visited', true);
+
+	// Show account details in placeholders
+	showAccountDetailsInPlaceholders(accounts[0]);
+} else {
+	// Make placeholders editable
+	inputLoginUsername.removeAttribute('disabled');
+	inputLoginPin.removeAttribute('disabled');
+}
