@@ -180,6 +180,14 @@ h2 {
 	display: flex;
 	align-items: center;
 	border-bottom: 1px solid #eee;
+	opacity: 0;
+	transform: translateX(-100%);
+	transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.movements__row.slide-in {
+	opacity: 1;
+	transform: translateX(0);
 }
 
 .movements__type {

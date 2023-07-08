@@ -148,6 +148,14 @@ function updateUI(acc) {
 	// display movements
 	displayMovements(acc.movements);
 
+	const movementRow = document.querySelectorAll('.movements__row');
+
+	movementRow.forEach((row, index) => {
+		setTimeout(() => {
+			row.classList.add('slide-in');
+		}, index * 10000);
+	});
+
 	// display balance
 	calcDisplayBalance(acc);
 
