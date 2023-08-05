@@ -128,6 +128,21 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////// point : bankist app all functions //
 /////////////////////////////////////////////////
 
+// todo : formate movements dates
+
+const formatMovementDate = function (date, locale) {
+	const calcDaysPassed = (date1, date2) =>
+		Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
+
+	const daysPassed = calcDaysPassed(new Date(), date);
+
+	if (daysPassed === 0) return 'Today';
+	if (daysPassed === 1) return 'Yesterday';
+	if (daysPassed <= 7) return `${daysPassed} days ago`;
+
+	return new Intl.DateTimeFormat(locale).format(date);
+};
+
 /// display movements
 const displayMovements = function (movements, sort = false) {
 	containerMovements.innerHTML = '';
@@ -141,18 +156,19 @@ const displayMovements = function (movements, sort = false) {
 	sortingMovements.forEach(function (movement, index) {
 		const type = movement > 0 ? 'deposit' : 'withdrawal';
 
+		const date = new Date(account1.movementsDates[index]);
+
+		const displayDate = formatMovementDate(date, account1.local);
+
 		const html = `
-
-		<div class="movements__row">
-			<div class="movements__type movements__type--${type}" > ${type} ${
+      <div class="movements__row">
+        <div class="movements__type movements__type--${type}">${
 			index + 1
-		}</div>
-
-			<div class="movements__value ">   ${movement} €</div>
-
-		</div>
-
-		`;
+		} ${type}</div>
+				<div class="movements__date">${displayDate}</div>
+        <div class="movements__value">${'he'}</div>
+      </div>
+    `;
 
 		containerMovements.insertAdjacentHTML('afterbegin', html); // afterbegin : insert html at the beginning of the container
 	});
