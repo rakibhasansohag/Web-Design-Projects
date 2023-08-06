@@ -1,6 +1,6 @@
 // BANKIST APP
 
-// All the Data we need for the app
+// / All the Data we need for the app
 const account1 = {
 	owner: 'Rakib Hasan Sohag',
 	movements: [400, 650, -1200, 300, -450, -80, 100, 800],
@@ -86,7 +86,7 @@ const account5 = {
 		'2023-08-03T10:51:36.790Z',
 		'2023-08-02T10:51:36.790Z',
 	],
-	currency: 'yuan',
+	currency: 'JPY',
 	locale: 'zh-CN',
 };
 const accounts = [account1, account2, account3, account4, account5];
@@ -128,7 +128,9 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////// point : bankist app all functions //
 /////////////////////////////////////////////////
 
-// Format movement date
+// /global variable
+let currentAccount;
+// todo : Format movement date
 const formatMovementDate = function (date, locale) {
 	const calcDaysPassed = (date1, date2) =>
 		Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
@@ -185,7 +187,7 @@ const displayMovements = function (movements, sort = false) {
 	});
 };
 
-// Calculate and display balance
+// todo : Calculate and display balance
 const calcDisplayBalance = function (acc) {
 	const balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
 	acc.balance = balance;
@@ -196,7 +198,7 @@ const calcDisplayBalance = function (acc) {
 	);
 };
 
-// Calculate and display summary
+// todo : Calculate and display summary
 const calcDisplaySummary = function (acc) {
 	const incomes = acc.movements
 		.filter((mov) => mov > 0)
@@ -223,7 +225,7 @@ const calcDisplaySummary = function (acc) {
 	);
 };
 
-// Create user names
+// todo :  Create user names
 const createUserNames = function (accounts) {
 	accounts.forEach((account) => {
 		account.username = account.owner
@@ -269,30 +271,48 @@ function updateUI(acc) {
 	});
 }
 
-// todo : Login event handler
+// todo : Login event handler ( login )
 
 btnLogin.addEventListener('click', function (e) {
 	e.preventDefault();
+
 	currentAccount = accounts.find((acc) => {
 		return acc.username === inputLoginUsername.value;
 	});
 
+	// console.log(currentAccount);
+
 	if (currentAccount?.pin === Number(inputLoginPin.value)) {
+		// display UI and message
 		labelWelcome.textContent = `Welcome back, ${
 			currentAccount.owner.split(' ')[0]
 		}`;
+
 		containerApp.style.opacity = 100;
+
+		// clear input fields
 		inputLoginUsername.value = inputLoginPin.value = '';
 		inputLoginPin.blur();
+
+		// update UI
 		updateUI(currentAccount);
 
-		accounts.forEach((acc) => {
-			console.log(`UserName: ${acc.username}, PIN: ${acc.pin}`);
-		});
+		alert('please check the console for the username and PIN :');
 
-		console.log('Please save these credentials');
+		accounts.map((acc) => {
+			console.log(`UserName : ${acc.username} , PIN : ${acc.pin}  `);
+		});
+		console.log('please save those credentials');
 	} else {
-		alert('Wrong username or PIN! Beware of what lurks in the darkness...');
+		const jumpScareSound = new Audio('jump_scare_sound.mp3');
+		jumpScareSound.play();
+
+		const loginError = document.querySelector('.login');
+		loginError.classList.add('--error');
+
+		setTimeout(() => {
+			alert('Wrong username or PIN! Beware of what lurks in the darkness...');
+		}, jumpScareSound.duration * 3000);
 	}
 });
 
