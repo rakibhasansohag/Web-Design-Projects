@@ -156,13 +156,13 @@ const formatCurrency = function (value, locale, currency) {
 const displayMovements = function (movements, sort = false) {
 	containerMovements.innerHTML = '';
 
-	console.log('Before Sorting : ', movements);
+	// console.log('Before Sorting : ', movements);
 
 	const sortingMovements = sort
 		? movements.slice().sort((a, b) => a - b)
 		: movements;
 
-	console.log('After Sorting : ', sortingMovements);
+	// console.log('After Sorting : ', sortingMovements);
 
 	sortingMovements.forEach(function (mov, index) {
 		const type = mov > 0 ? 'deposit' : 'withdrawal';
@@ -257,7 +257,7 @@ function updateUI(acc) {
 	movementRow.forEach((row, index) => {
 		setTimeout(() => {
 			row.classList.add('slide-in');
-		}, index * 1000);
+		}, index * 500);
 	});
 	const balanceValue = document.querySelector('.balance__value');
 	balanceValue.classList.add('animate-scale');
