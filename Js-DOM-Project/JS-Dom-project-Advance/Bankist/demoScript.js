@@ -347,14 +347,19 @@ btnTransfer.addEventListener('click', function (e) {
 // Request loan event handler
 btnLoan.addEventListener('click', function (e) {
 	e.preventDefault();
-	const amount = Number(inputLoanAmount.value);
+	const amount = Math.round(Number(inputLoanAmount.value));
 
 	if (
 		amount > 0 &&
 		currentAccount.movements.some((mov) => mov >= amount * 0.1)
 	) {
-		currentAccount.movements.push(amount);
-		updateUI(currentAccount);
+		setTimeout(() => {
+			// / : add movement
+			currentAccount.movements.push(amount);
+			// / : add loan date
+			currentAccount.movementsDates.push(new Date().toISOString());
+			updateUI(currentAccount);
+		}, 2500);
 	} else {
 		alert('You cannot request a loan! :(');
 	}
