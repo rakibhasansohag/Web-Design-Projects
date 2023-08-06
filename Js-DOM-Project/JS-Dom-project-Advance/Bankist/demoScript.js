@@ -344,7 +344,7 @@ btnTransfer.addEventListener('click', function (e) {
 	}
 });
 
-// Request loan event handler
+// todo : Request loan event handler
 btnLoan.addEventListener('click', function (e) {
 	e.preventDefault();
 	const amount = Math.round(Number(inputLoanAmount.value));
@@ -368,7 +368,7 @@ btnLoan.addEventListener('click', function (e) {
 	inputLoanAmount.blur();
 });
 
-// Close account event handler
+// todo : Close account event handler
 btnClose.addEventListener('click', function (e) {
 	e.preventDefault();
 
@@ -393,7 +393,7 @@ btnClose.addEventListener('click', function (e) {
 	}
 });
 
-// Sort movements event handler
+// todo : Sort movements event handler
 let sorted = false;
 let sortButtonClickCount = 0;
 
@@ -414,7 +414,7 @@ btnSort.addEventListener(
 	1000,
 );
 
-// Show account details in placeholders
+// todo : Show account details in placeholders
 const showAccountDetailsInPlaceholders = (account) => {
 	alert(
 		`First Account Details:\nUsername: ${account.username}\nPIN: ${account.pin}`,
@@ -433,7 +433,7 @@ if (!localStorage.getItem('visited')) {
 	inputLoginPin.removeAttribute('disabled');
 }
 
-// Debounce function
+// todo : Debounce function
 function debounce(func, delay) {
 	let timeoutId;
 	return (...args) => {
@@ -444,7 +444,7 @@ function debounce(func, delay) {
 	};
 }
 
-// Currency converter
+// task : Currency converter
 const convertCurrency = function (balance, targetCurrency) {
 	const conversionRate = conversionRates[targetCurrency];
 	if (conversionRate) {
