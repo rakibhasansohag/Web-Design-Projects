@@ -363,6 +363,11 @@ btnTransfer.addEventListener('click', function (e) {
 		updateUI(currentAccount);
 		inputTransferAmount.value = inputTransferTo.value = '';
 		inputTransferAmount.blur();
+
+		// todo : reset timer
+
+		clearInterval(timer);
+		timer = startLogOutTimer();
 	}
 });
 
