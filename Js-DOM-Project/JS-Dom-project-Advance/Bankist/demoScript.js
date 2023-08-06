@@ -236,14 +236,41 @@ const createUserNames = function (accounts) {
 
 createUserNames(accounts);
 
-// Update UI
+// todo : Update UI
+
 function updateUI(acc) {
 	displayMovements(acc.movements);
+
+	const movementRow = document.querySelectorAll('.movements__row');
+
+	movementRow.forEach((row, index) => {
+		setTimeout(() => {
+			row.classList.add('slide-in');
+		}, index * 1000);
+	});
+
 	calcDisplayBalance(acc);
 	calcDisplaySummary(acc);
+
+	// todo : new features
+
+	const balanceValue = document.querySelector('.balance__value');
+	balanceValue.classList.add('animate-scale');
+
+	const summaryLabels = document.querySelectorAll('.summary__label');
+	const summaryValues = document.querySelectorAll('.summary__value');
+
+	summaryLabels.forEach((label) => {
+		label.classList.add('animate-slide');
+	});
+
+	summaryValues.forEach((value) => {
+		value.classList.add('animate-slide');
+	});
 }
 
-// Login event handler
+// todo : Login event handler
+
 btnLogin.addEventListener('click', function (e) {
 	e.preventDefault();
 	currentAccount = accounts.find((acc) => {
