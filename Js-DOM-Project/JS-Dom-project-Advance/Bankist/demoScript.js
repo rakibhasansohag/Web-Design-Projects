@@ -129,7 +129,7 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 
 // /global variable
-let currentAccount;
+let currentAccount, timer;
 // todo : Format movement date
 const formatMovementDate = function (date, locale) {
 	const calcDaysPassed = (date1, date2) =>
@@ -316,7 +316,7 @@ btnLogin.addEventListener('click', function (e) {
 	}
 });
 
-// Transfer money event handler
+// todo : Transfer money event handler
 btnTransfer.addEventListener('click', function (e) {
 	e.preventDefault();
 	const amount = Number(inputTransferAmount.value);
@@ -330,8 +330,14 @@ btnTransfer.addEventListener('click', function (e) {
 		currentAccount.balance >= amount &&
 		receiveAcc.username !== currentAccount.username
 	) {
+		// TASK : doing the transfer
 		currentAccount.movements.push(-amount);
 		receiveAcc.movements.push(amount);
+
+		// TODO : ADDED TRANSFER DATE
+		currentAccount.movementsDates.push(new Date().toISOString());
+		receiveAcc.movementsDates.push(new Date().toISOString());
+
 		updateUI(currentAccount);
 		inputTransferAmount.value = inputTransferTo.value = '';
 		inputTransferAmount.blur();
