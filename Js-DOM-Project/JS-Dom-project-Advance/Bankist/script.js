@@ -1,6 +1,6 @@
 // BANKIST APP
 
-// All the Data we need for the app
+// / All the Data we need for the app
 const account1 = {
 	owner: 'Rakib Hasan Sohag',
 	movements: [400, 650, -1200, 300, -450, -80, 100, 800],
@@ -17,7 +17,7 @@ const account1 = {
 		'2023-07-28T10:51:36.790Z',
 	],
 	currency: 'BDT',
-	local: 'bn-BD',
+	locale: 'bn-BD',
 };
 
 const account2 = {
@@ -36,7 +36,7 @@ const account2 = {
 		'2023-07-28T10:51:36.790Z',
 	],
 	currency: 'EUR',
-	local: 'en-US',
+	locale: 'en-US',
 };
 
 const account3 = {
@@ -55,7 +55,7 @@ const account3 = {
 		'2023-07-28T10:51:36.790Z',
 	],
 	currency: 'USD',
-	local: 'en-US',
+	locale: 'en-US',
 };
 
 const account4 = {
@@ -71,7 +71,7 @@ const account4 = {
 		'2023-08-02T10:51:36.790Z',
 	],
 	currency: 'IRE',
-	local: 'en-US',
+	locale: 'en-US',
 };
 
 const account5 = {
@@ -86,8 +86,8 @@ const account5 = {
 		'2023-08-03T10:51:36.790Z',
 		'2023-08-02T10:51:36.790Z',
 	],
-	currency: 'yuan',
-	local: 'zh-CN',
+	currency: 'JPY',
+	locale: 'zh-CN',
 };
 const accounts = [account1, account2, account3, account4, account5];
 
@@ -128,69 +128,104 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////// point : bankist app all functions //
 /////////////////////////////////////////////////
 
-/// display movements
+// /global variable
+let currentAccount, timer;
+// todo : Format movement date
+const formatMovementDate = function (date, locale) {
+	const calcDaysPassed = (date1, date2) =>
+		Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
+
+	const daysPassed = calcDaysPassed(new Date(), date);
+
+	if (daysPassed === 0) return 'Today';
+	if (daysPassed === 1) return 'Yesterday';
+	if (daysPassed <= 7) return `${daysPassed} days ago`;
+
+	return new Intl.DateTimeFormat(locale).format(date);
+};
+
+// Format currency
+const formatCurrency = function (value, locale, currency) {
+	return new Intl.NumberFormat(locale, {
+		style: 'currency',
+		currency,
+	}).format(value);
+};
+
+// Display movements
 const displayMovements = function (movements, sort = false) {
 	containerMovements.innerHTML = '';
-
-	// todo : sort movements
 
 	const sortingMovements = sort
 		? movements.slice().sort((a, b) => a - b)
 		: movements;
 
-	sortingMovements.forEach(function (movement, index) {
-		const type = movement > 0 ? 'deposit' : 'withdrawal';
+	sortingMovements.forEach(function (mov, index) {
+		const type = mov > 0 ? 'deposit' : 'withdrawal';
+
+		const date = new Date(currentAccount.movementsDates[index]);
+
+		const displayDate = formatMovementDate(date, currentAccount.locale);
+
+		const formattedDate = formatCurrency(
+			mov,
+			currentAccount.locale,
+			currentAccount.currency,
+		);
 
 		const html = `
-
-		<div class="movements__row">
-			<div class="movements__type movements__type--${type}" > ${type} ${
+      <div class="movements__row">
+        <div class="movements__type movements__type--${type}">${
 			index + 1
-		}</div>
+		} ${type}</div>
+        <div class="movements__date">${displayDate}</div>
+        <div class="movements__value">${formattedDate}</div>
+      </div>
+    `;
 
-			<div class="movements__value ">   ${movement} €</div>
-
-		</div>
-
-		`;
-
-		containerMovements.insertAdjacentHTML('afterbegin', html); // afterbegin : insert html at the beginning of the container
+		containerMovements.insertAdjacentHTML('afterbegin', html);
 	});
 };
 
-/// display balance
+// todo : Calculate and display balance
 const calcDisplayBalance = function (acc) {
 	const balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
 	acc.balance = balance;
-	labelBalance.textContent = `${balance} €`;
+	labelBalance.textContent = formatCurrency(
+		acc.balance,
+		acc.locale,
+		acc.currency,
+	);
 };
 
+// todo : Calculate and display summary
 const calcDisplaySummary = function (acc) {
 	const incomes = acc.movements
 		.filter((mov) => mov > 0)
 		.reduce((acc, cur) => acc + cur, 0);
 
-	labelSumIn.textContent = `${incomes} €`;
+	labelSumIn.textContent = formatCurrency(incomes, acc.locale, acc.currency);
+
 	const outcomes = acc.movements
 		.filter((mov) => mov < 0)
 		.reduce((acc, cur) => Math.trunc(acc + cur), 0);
-	labelSumOut.textContent = `${Math.abs(outcomes)} €`;
+
+	labelSumOut.textContent = formatCurrency(outcomes, acc.locale, acc.currency);
 
 	const interestRate = acc.movements
 		.filter((mov) => mov > 0)
 		.map((deposit) => (deposit * acc.interestRate) / 100)
-		.filter((int, i, arr) => {
-			// console.log(arr);
-
-			return int >= 1;
-		})
+		.filter((int, i, arr) => int >= 1)
 		.reduce((acc, int) => acc + int, 0);
-	labelSumInterest.textContent = `${interestRate} €`;
+
+	labelSumInterest.textContent = formatCurrency(
+		interestRate,
+		acc.locale,
+		acc.currency,
+	);
 };
 
-// calcDisplaySummary(account1.movements);
-
-/// display summary
+// todo :  Create user names
 const createUserNames = function (accounts) {
 	accounts.forEach((account) => {
 		account.username = account.owner
@@ -206,7 +241,6 @@ createUserNames(accounts);
 // todo : Update UI
 
 function updateUI(acc) {
-	// display movements
 	displayMovements(acc.movements);
 
 	const movementRow = document.querySelectorAll('.movements__row');
@@ -214,13 +248,10 @@ function updateUI(acc) {
 	movementRow.forEach((row, index) => {
 		setTimeout(() => {
 			row.classList.add('slide-in');
-		}, index * 10000);
+		}, index * 1000);
 	});
 
-	// display balance
 	calcDisplayBalance(acc);
-
-	// display summary
 	calcDisplaySummary(acc);
 
 	// todo : new features
@@ -240,8 +271,7 @@ function updateUI(acc) {
 	});
 }
 
-// todo : Event handler ( login )
-let currentAccount;
+// todo : Login event handler ( login )
 
 btnLogin.addEventListener('click', function (e) {
 	e.preventDefault();
@@ -260,14 +290,36 @@ btnLogin.addEventListener('click', function (e) {
 
 		containerApp.style.opacity = 100;
 
-		// clear input fields
+		// todo : Added date and time
+
+		const now = new Date();
+
+		const options = {
+			hour: 'numeric',
+			minute: 'numeric',
+			day: '2-digit',
+			month: 'long',
+			year: 'numeric',
+			weekday: 'long',
+		};
+
+		labelDate.textContent = new Intl.DateTimeFormat(
+			currentAccount.locale,
+			options,
+		).format(now);
+
+		// / clear input fields
 		inputLoginUsername.value = inputLoginPin.value = '';
 		inputLoginPin.blur();
 
-		// update UI
+		// / update UI
 		updateUI(currentAccount);
 
 		alert('please check the console for the username and PIN :');
+
+		// todo : timer for logout
+		if (timer) clearInterval(timer);
+		timer = startLogOutTimer();
 
 		accounts.map((acc) => {
 			console.log(`UserName : ${acc.username} , PIN : ${acc.pin}  `);
@@ -286,65 +338,99 @@ btnLogin.addEventListener('click', function (e) {
 	}
 });
 
-// todo : transfer money
-
+// todo : Transfer money event handler
 btnTransfer.addEventListener('click', function (e) {
 	e.preventDefault();
 	const amount = Number(inputTransferAmount.value);
 	const receiveAcc = accounts.find(
 		(acc) => acc.username === inputTransferTo.value,
-	).username
-		? accounts.find((acc) => acc.username === inputTransferTo.value)
-		: undefined;
-
-	console.log(amount, receiveAcc);
+	);
 
 	if (
 		amount > 0 &&
 		receiveAcc &&
 		currentAccount.balance >= amount &&
-		receiveAcc?.username !== currentAccount.username
+		receiveAcc.username !== currentAccount.username
 	) {
-		console.log('transfer valid');
-		// doing the transfer
+		// TASK : doing the transfer
 		currentAccount.movements.push(-amount);
 		receiveAcc.movements.push(amount);
 
-		// update UI
+		// TODO : ADDED TRANSFER DATE
+		currentAccount.movementsDates.push(new Date().toISOString());
+		receiveAcc.movementsDates.push(new Date().toISOString());
 
 		updateUI(currentAccount);
-
 		inputTransferAmount.value = inputTransferTo.value = '';
 		inputTransferAmount.blur();
+
+		// todo : reset timer
+
+		clearInterval(timer);
+		timer = startLogOutTimer();
 	}
 });
 
-// todo : request loan
+// todo : timer function
 
+const startLogOutTimer = function () {
+	// todo : 1.1 : set time to 5 minutes
+	let time = 300;
+
+	const tick = function () {
+		const min = String(Math.trunc(time / 60)).padStart(2, 0);
+		const sec = String(time % 60).padStart(2, 0);
+
+		// todo : 1.2 : in each call, print the remaining time to UI
+		labelTimer.textContent = `${min}:${sec}`;
+
+		// todo : 1.3 : when 0 seconds, stop timer and log out user
+
+		if (time === 0) {
+			clearInterval(timer);
+			labelWelcome.textContent = 'Log in to get started';
+			containerApp.style.opacity = 0;
+		}
+
+		// todo : 1.4 : decrease 1 second
+		time--;
+	};
+
+	tick();
+	// todo 1.5 : call the timer every second
+	const timer = setInterval(tick, 1000);
+	return timer;
+};
+
+// todo : Request loan event handler
 btnLoan.addEventListener('click', function (e) {
 	e.preventDefault();
-
-	const amount = Number(inputLoanAmount.value);
+	const amount = Math.round(Number(inputLoanAmount.value));
 
 	if (
 		amount > 0 &&
 		currentAccount.movements.some((mov) => mov >= amount * 0.1)
 	) {
-		// add movement
-		currentAccount.movements.push(amount);
+		setTimeout(() => {
+			// / : add movement
+			currentAccount.movements.push(amount);
+			// / : add loan date
+			currentAccount.movementsDates.push(new Date().toISOString());
+			updateUI(currentAccount);
 
-		// update UI
-		updateUI(currentAccount);
+			// todo : reset timer
+			clearInterval(timer);
+			timer = startLogOutTimer();
+		}, 2500);
 	} else {
-		alert('You cannot request a loan ! :(');
+		alert('You cannot request a loan! :(');
 	}
 
 	inputLoanAmount.value = '';
 	inputLoanAmount.blur();
 });
 
-// todo : close account
-
+// todo : Close account event handler
 btnClose.addEventListener('click', function (e) {
 	e.preventDefault();
 
@@ -352,45 +438,27 @@ btnClose.addEventListener('click', function (e) {
 		Number(inputClosePin.value) === currentAccount.pin &&
 		inputCloseUsername.value === currentAccount.username
 	) {
-		// delete account
-
 		const index = accounts.findIndex(
 			(acc) => acc.username === currentAccount.username,
 		);
-
 		accounts.splice(index, 1);
-
-		// hide UI
 		containerApp.style.opacity = 0;
-
 		inputClosePin.value = inputCloseUsername.value = '';
 		inputClosePin.blur();
-
 		labelWelcome.textContent = 'Log in to get started';
-
-		// console.log(accounts);
-
-		// update UI
-
 		updateUI(currentAccount);
-
-		// display message
-
 		alert('Account deleted');
-
-		// clear input fields
-
 		inputClosePin.value = inputCloseUsername.value = '';
-
 		inputClosePin.blur();
 	} else {
 		alert('Wrong credentials');
 	}
 });
 
-// todo : sort movements (BTN ASCENDING )
+// todo : Sort movements event handler
 let sorted = false;
 let sortButtonClickCount = 0;
+
 btnSort.addEventListener(
 	'click',
 	function (e) {
@@ -400,7 +468,7 @@ btnSort.addEventListener(
 		sorted = !sorted;
 
 		if (sortButtonClickCount === 4) {
-			alert('You are a hacker !');
+			alert('You are a hacker!');
 		} else if (sortButtonClickCount === 9) {
 			alert('You clicked the sort button multiple times!');
 		}
@@ -408,39 +476,26 @@ btnSort.addEventListener(
 	1000,
 );
 
-// todo : Function to show account details in placeholder
-
+// todo : Show account details in placeholders
 const showAccountDetailsInPlaceholders = (account) => {
 	alert(
 		`First Account Details:\nUsername: ${account.username}\nPIN: ${account.pin}`,
 	);
-
 	inputLoginUsername.placeholder = account.username;
 	inputLoginUsername.removeAttribute('disabled');
-
 	inputLoginPin.placeholder = account.pin;
 	inputLoginPin.removeAttribute('disabled');
 };
 
-// Check if localStorage has the 'visited' key
 if (!localStorage.getItem('visited')) {
-	// Show alert with the details of the first account
-	// alert(
-	// 	`First Account Details:\nUsername: ${accounts[0].username}\nPIN: ${accounts[0].pin}`,
-	// );
-
-	// Set 'visited' key in localStorage
 	localStorage.setItem('visited', true);
-
-	// Show account details in placeholders
 	showAccountDetailsInPlaceholders(accounts[0]);
 } else {
-	// Make placeholders editable
 	inputLoginUsername.removeAttribute('disabled');
 	inputLoginPin.removeAttribute('disabled');
 }
 
-// todo: Debounce function to limit the frequency of function calls
+// todo : Debounce function
 function debounce(func, delay) {
 	let timeoutId;
 	return (...args) => {
@@ -451,13 +506,12 @@ function debounce(func, delay) {
 	};
 }
 
-// todo : currency converter
-
+// task : Currency converter
 const convertCurrency = function (balance, targetCurrency) {
 	const conversionRate = conversionRates[targetCurrency];
 	if (conversionRate) {
 		const convertedBalance = balance * conversionRate;
-		return convertedBalance.toFixed(2); // Adjust the decimal places as needed
+		return convertedBalance.toFixed(2);
 	} else {
 		return 'Unsupported currency';
 	}
