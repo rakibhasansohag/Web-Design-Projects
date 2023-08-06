@@ -290,14 +290,36 @@ btnLogin.addEventListener('click', function (e) {
 
 		containerApp.style.opacity = 100;
 
-		// clear input fields
+		// todo : Added date and time
+
+		const now = new Date();
+
+		const options = {
+			hour: 'numeric',
+			minute: 'numeric',
+			day: '2-digit',
+			month: 'long',
+			year: 'numeric',
+			weekday: 'long',
+		};
+
+		labelDate.textContent = new Intl.DateTimeFormat(
+			currentAccount.locale,
+			options,
+		).format(now);
+
+		// / clear input fields
 		inputLoginUsername.value = inputLoginPin.value = '';
 		inputLoginPin.blur();
 
-		// update UI
+		// / update UI
 		updateUI(currentAccount);
 
 		alert('please check the console for the username and PIN :');
+
+		// todo : timer for logout
+		if (timer) clearInterval(timer);
+		timer = startLogOutTimer();
 
 		accounts.map((acc) => {
 			console.log(`UserName : ${acc.username} , PIN : ${acc.pin}  `);
