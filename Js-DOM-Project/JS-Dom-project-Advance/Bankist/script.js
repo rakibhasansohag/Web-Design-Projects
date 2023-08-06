@@ -156,9 +156,13 @@ const formatCurrency = function (value, locale, currency) {
 const displayMovements = function (movements, sort = false) {
 	containerMovements.innerHTML = '';
 
+	console.log('Before Sorting : ', movements);
+
 	const sortingMovements = sort
 		? movements.slice().sort((a, b) => a - b)
 		: movements;
+
+	console.log('After Sorting : ', sortingMovements);
 
 	sortingMovements.forEach(function (mov, index) {
 		const type = mov > 0 ? 'deposit' : 'withdrawal';
@@ -243,6 +247,11 @@ createUserNames(accounts);
 function updateUI(acc) {
 	displayMovements(acc.movements);
 
+	calcDisplayBalance(acc);
+	calcDisplaySummary(acc);
+
+	// todo : new features
+
 	const movementRow = document.querySelectorAll('.movements__row');
 
 	movementRow.forEach((row, index) => {
@@ -250,12 +259,6 @@ function updateUI(acc) {
 			row.classList.add('slide-in');
 		}, index * 1000);
 	});
-
-	calcDisplayBalance(acc);
-	calcDisplaySummary(acc);
-
-	// todo : new features
-
 	const balanceValue = document.querySelector('.balance__value');
 	balanceValue.classList.add('animate-scale');
 
@@ -464,8 +467,8 @@ btnSort.addEventListener(
 	function (e) {
 		e.preventDefault();
 		sortButtonClickCount++;
-		sorted = !sorted;
 		displayMovements(currentAccount.movements, !sorted);
+		sorted = !sorted;
 
 		if (sortButtonClickCount === 4) {
 			alert('You are a hacker!');
@@ -473,9 +476,7 @@ btnSort.addEventListener(
 			alert('You clicked the sort button multiple times!');
 		}
 
-		setTimeout(() => {
-			updateUI(currentAccount);
-		}, 100);
+		updateUI(currentAccount);
 	},
 	1000,
 );
