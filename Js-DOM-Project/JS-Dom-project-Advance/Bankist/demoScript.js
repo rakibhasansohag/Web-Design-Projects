@@ -417,6 +417,10 @@ btnLoan.addEventListener('click', function (e) {
 			// / : add loan date
 			currentAccount.movementsDates.push(new Date().toISOString());
 			updateUI(currentAccount);
+
+			// todo : reset timer
+			clearInterval(timer);
+			timer = startLogOutTimer();
 		}, 2500);
 	} else {
 		alert('You cannot request a loan! :(');
