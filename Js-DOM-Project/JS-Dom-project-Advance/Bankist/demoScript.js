@@ -344,6 +344,37 @@ btnTransfer.addEventListener('click', function (e) {
 	}
 });
 
+// todo : timer function
+
+const startLogOutTimer = function () {
+	// todo : 1.1 : set time to 5 minutes
+	let time = 300;
+
+	const tick = function () {
+		const min = String(Math.trunc(time / 60)).padStart(2, 0);
+		const sec = String(time % 60).padStart(2, 0);
+
+		// todo : 1.2 : in each call, print the remaining time to UI
+		labelTimer.textContent = `${min}:${sec}`;
+
+		// todo : 1.3 : when 0 seconds, stop timer and log out user
+
+		if (time === 0) {
+			clearInterval(timer);
+			labelWelcome.textContent = 'Log in to get started';
+			containerApp.style.opacity = 0;
+		}
+
+		// todo : 1.4 : decrease 1 second
+		time--;
+	};
+
+	tick();
+	// todo 1.5 : call the timer every second
+	const timer = setInterval(tick, 1000);
+	return timer;
+};
+
 // todo : Request loan event handler
 btnLoan.addEventListener('click', function (e) {
 	e.preventDefault();
