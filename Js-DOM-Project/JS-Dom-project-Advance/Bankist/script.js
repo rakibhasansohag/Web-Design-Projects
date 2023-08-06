@@ -7,14 +7,14 @@ const account1 = {
 	interestRate: 1.2,
 	pin: 1111,
 	movementsDates: [
-		'2023-08-08T10:51:36.790Z',
-		'2023-08-07T10:51:36.790Z',
-		'2023-08-06T10:51:36.790Z',
-		'2023-08-03T10:51:36.790Z',
-		'2023-08-02T10:51:36.790Z',
-		'2023-08-01T10:51:36.790Z',
-		'2023-07-29T10:51:36.790Z',
 		'2023-07-28T10:51:36.790Z',
+		'2023-07-29T10:51:36.790Z',
+		'2023-08-01T10:51:36.790Z',
+		'2023-08-02T10:51:36.790Z',
+		'2023-08-03T10:51:36.790Z',
+		'2023-08-04T10:51:36.790Z',
+		'2023-08-05T10:51:36.790Z',
+		'2023-08-06T10:51:36.790Z',
 	],
 	currency: 'BDT',
 	locale: 'bn-BD',
@@ -464,14 +464,18 @@ btnSort.addEventListener(
 	function (e) {
 		e.preventDefault();
 		sortButtonClickCount++;
-		displayMovements(currentAccount.movements, !sorted);
 		sorted = !sorted;
+		displayMovements(currentAccount.movements, !sorted);
 
 		if (sortButtonClickCount === 4) {
 			alert('You are a hacker!');
 		} else if (sortButtonClickCount === 9) {
 			alert('You clicked the sort button multiple times!');
 		}
+
+		setTimeout(() => {
+			updateUI(currentAccount);
+		}, 100);
 	},
 	1000,
 );
