@@ -594,6 +594,46 @@ p:last-child {
 					}
 				}
 			}
+
+			.search_bottom {
+				margin-top: 20px;
+				display: grid;
+				grid-template-columns: 2fr 2fr 2fr 1fr;
+				gap: 20px;
+
+				.flights_search_bottom_boxed {
+					background: #8b3eea17;
+					padding: 10px 10px 10px 20px;
+					border-radius: 10px;
+					position: relative;
+
+					p {
+						font-size: 14px;
+					}
+					input {
+						font-size: 22px;
+						width: 87%;
+						border: none;
+						background: transparent;
+						font-weight: 500;
+						height: 35px;
+						padding: 0;
+
+						&.date {
+							width: 50%;
+						}
+					}
+
+					span {
+						display: block;
+						font-size: 12px;
+						padding-top: 5px;
+						text-overflow: ellipsis;
+						overflow: hidden;
+						white-space: nowrap;
+					}
+				}
+			}
 		}
 	}
 }
