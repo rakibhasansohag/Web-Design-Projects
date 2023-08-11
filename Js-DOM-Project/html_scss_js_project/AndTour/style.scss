@@ -1,6 +1,95 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,400;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,900&display=swap');
 
+// point : global start
 
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	outline: none;
+	font-family: 'Roboto', sans-serif;
+	list-style: none;
+}
+
+body {
+	background-color: #fff;
+	font-style: 16px;
+	height: 100%;
+}
+
+$--primary-color: #8b3eea;
+$--white-color: #fff;
+$--black-color: #2b2540;
+$--black-color-opacity: #2b2540c4;
+$--paragraph-color: #818090;
+$--bg-color: #f3f6fd;
+$--transition: 0.4s all ease-in-out;
+$--heading-color: #f7f7f7;
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+a,
+a:hover,
+a:focus {
+	text-decoration: none;
+	text-decoration: none;
+	-webkit-transition: all 0.3s ease-in-out 0.1s;
+	transition: all 0.3s ease-in-out 0.1s;
+	color: $--primary-color;
+}
+
+a:hover {
+	color: $--heading-color;
+}
+
+h1 {
+	font-size: 82px;
+	font-weight: 400;
+	line-height: 90px;
+}
+
+h2 {
+	font-size: 36px;
+	font-weight: 400;
+	line-height: 40px;
+}
+
+h3 {
+	font-size: 24px;
+	font-weight: 300;
+}
+
+h4 {
+	font-size: 20px;
+	font-weight: 500;
+}
+
+h5 {
+	font-size: 18px;
+	font-weight: 400;
+}
+
+h6 {
+	font-size: 14px;
+	font-weight: 400;
+}
+
+p {
+	font-size: 16px;
+	line-height: 28px;
+	color: $--paragraph-color;
+	font-weight: 400;
+	font-family: inherit;
+	margin-bottom: 0;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+
+// point : global end
 
 // point  hero section start
 
