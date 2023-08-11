@@ -25,6 +25,10 @@ $--paragraph-color: #818090;
 $--bg-color: #f3f6fd;
 $--transition: 0.4s all ease-in-out;
 $--heading-color: #f7f7f7;
+$large-screen: 1200px;
+$medium-screen: 768px;
+$small-screen: 576px;
+
 img {
 	max-width: 100%;
 	height: auto;
@@ -158,6 +162,7 @@ p:last-child {
 		background-color: transparent;
 		color: $--white-color;
 		padding: 10px 0;
+		border-bottom: 1px solid #8da1b6;
 
 		.container {
 			display: flex;
@@ -223,14 +228,194 @@ p:last-child {
 			}
 		}
 	}
-}
 
-@media only screen and (max-width: 938px) {
-	.topbar_area {
-		display: none;
+	@media only screen and (max-width: 938px) {
+		.topbar_area {
+			display: none;
+		}
 	}
-}
 
-// point 1.1 : header top end
+	// point 1.1 : header top end
+
+	// point : 1.2 : header bottom start
+
+	.navbar {
+		background-color: transparent;
+		color: $--white-color;
+		padding: 10px 0;
+
+		.container {
+			.menu-button {
+				display: none;
+				background: none;
+				border: none;
+				cursor: pointer;
+				font-size: 24px;
+				color: $--white-color;
+			}
+
+			.main_nav {
+				display: flex;
+				align-items: center;
+				gap: 20px;
+				justify-content: space-between;
+
+				.left {
+					display: flex;
+					align-items: center;
+					gap: 70px;
+					.logo {
+						font-size: 24px;
+						font-weight: 700;
+						color: $--white-color;
+					}
+
+					.nav-links {
+						display: flex;
+						gap: 60px;
+
+						li {
+							position: relative;
+							cursor: pointer;
+
+							&:hover .dropdown {
+								display: block;
+							}
+
+							.dropdown {
+								display: none;
+								position: absolute;
+								top: 100%;
+								left: 0;
+								background-color: $--black-color;
+								width: 200px;
+								padding: 10px;
+								margin-top: 10px;
+								li {
+									padding: 8px 0;
+
+									a {
+										color: $--white-color !important;
+										text-decoration: none;
+										&:hover {
+											color: $--heading-color;
+										}
+									}
+								}
+							}
+						}
+						a {
+							color: $--white-color;
+							text-decoration: none;
+							&:hover {
+								color: $--primary-color;
+								transition: $--transition;
+							}
+						}
+					}
+				}
+				.right {
+					.search-icon {
+						font-size: 20px;
+						margin-right: 20px;
+					}
+
+					.partner-button {
+						background-color: $--primary-color;
+						color: $--white-color;
+						padding: 10px 10px;
+						border: none;
+						cursor: pointer;
+						font-size: 17px;
+						border-radius: 5px;
+						transition: $--transition;
+						box-shadow: none;
+						white-space: nowrap;
+
+						&:hover {
+							background-color: $--heading-color;
+							transition: $--transition;
+							color: $--primary-color;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@media only screen and (max-width: 768px) {
+		.navbar {
+			.container {
+				.menu-button {
+					display: block;
+					font-size: 100px;
+					color: $--white-color;
+					background-color: $--primary-color;
+					cursor: pointer;
+					transition: $--transition;
+					position: absolute;
+					top: 0%;
+					left: 0%;
+					&:hover {
+						color: $--primary-color;
+					}
+
+					&.active {
+						display: flex;
+						flex-direction: column;
+					}
+				}
+
+				.main_nav {
+					.left {
+						.nav-links {
+							display: none;
+							flex-direction: column;
+							background-color: $--black-color;
+							position: absolute;
+							top: 60px;
+							left: 0;
+							width: 100%;
+
+							li {
+								width: 100%;
+								padding: 10px;
+
+								.dropdown {
+									display: none;
+									position: static;
+									background-color: $--black-color;
+									padding: 0;
+
+									li {
+										padding: 0;
+
+										a {
+											padding: 10px 20px;
+											display: block;
+											&:hover {
+												background-color: $--black-color-opacity;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+
+					.right {
+						display: none;
+					}
+				}
+			}
+		}
+
+		.active {
+			display: block;
+		}
+	}
+
+	// point : 1.2 : header bottom end
+}
 
 // point  Header section  end
