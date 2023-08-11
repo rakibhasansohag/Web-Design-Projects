@@ -786,3 +786,91 @@ p:last-child {
 }
 
 // point : search end
+
+// point : go beyond area start
+
+.go_beyond_area {
+	padding: 100px 0 0 0;
+
+	.container {
+		.go_beyond_area_box {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+			gap: 20px;
+			align-items: center;
+			.first {
+				h2 {
+					font-weight: 400;
+					padding-bottom: 17px;
+					line-height: 45px;
+
+					span {
+						display: inline-block;
+						border-bottom: 1px solid $--primary-color;
+						padding-bottom: 10px;
+					}
+				}
+
+				h5 {
+					color: $--black-color-opacity;
+				}
+			}
+
+			.img_content {
+				position: relative;
+				border-radius: 14px;
+				overflow: hidden;
+				transition: $--transition;
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					transition: $--transition;
+
+					&:hover {
+						transform: scale(1.1);
+						transition: $--transition;
+
+						& + .content_overlay {
+							.content {
+								h3 {
+									font-weight: 800;
+									transition: $--transition;
+
+									background-color: rgba(0, 0, 0, 0.5);
+								}
+							}
+						}
+					}
+				}
+
+				.content_overlay {
+					.content {
+						color: $--white-color;
+						transition: $--transition;
+
+						h3 {
+							position: absolute;
+							bottom: 0;
+							display: flex;
+							justify-content: center;
+							width: 100%;
+							z-index: 999;
+							align-items: center;
+							height: 25%;
+							transition: $--transition;
+							// background: rgba(0, 0, 0, 0.5);
+							span {
+								display: block;
+								text-align: center;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// point : go beyond area end
