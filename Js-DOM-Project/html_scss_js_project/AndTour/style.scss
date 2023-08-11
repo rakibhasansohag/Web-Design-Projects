@@ -89,6 +89,19 @@ p:last-child {
 	margin-bottom: 0;
 }
 
+.container {
+	width: 100%;
+	margin: auto;
+	max-width: 1440px;
+	padding: 0 50px;
+	@media (max-width: 991px) {
+		padding: 0 30px;
+	}
+	@media (max-width: 767px) {
+		padding: 0 15px;
+	}
+}
+
 // point : global end
 
 // point  hero section start
@@ -100,6 +113,32 @@ p:last-child {
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+
+	.text-container {
+		text-align: center;
+
+		h1 {
+			color: $--white-color;
+		}
+
+		h3 {
+			color: $--white-color;
+			padding-top: 13px;
+		}
+	}
+}
+
+@media only screen and (max-width: 1199px) {
+	.text-container h1 {
+		font-size: 50px;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.text-container h1 {
+		font-size: 50px;
+		line-height: 50px;
+	}
 }
 
 // point  hero section end
