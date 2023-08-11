@@ -124,6 +124,16 @@ p:last-child {
 	white-space: nowrap;
 	position: relative;
 	z-index: 0;
+	transition: all 0.3s ease-in-out 0s;
+	padding: 15px 30px;
+	color: $--white-color;
+	background-color: $--primary-color;
+	border: 1px solid $--primary-color;
+	&:hover {
+		color: $--white-color;
+		background-color: $--black-color;
+		border-color: $--heading-color;
+	}
 }
 
 // point : global end
@@ -593,6 +603,27 @@ p:last-child {
 						}
 					}
 				}
+
+				@media only screen and (max-width: 1280px) {
+					.search_top_box {
+						flex-direction: column;
+						gap: 20px;
+					}
+				}
+
+				@media only screen and (max-width: 938px) {
+					.search_top_box {
+						flex-direction: column;
+						gap: 20px;
+
+						.left {
+							justify-content: center;
+						}
+						.right {
+							justify-content: center;
+						}
+					}
+				}
 			}
 
 			.search_bottom {
@@ -632,6 +663,122 @@ p:last-child {
 						overflow: hidden;
 						white-space: nowrap;
 					}
+
+					.plane_icon_position {
+						position: absolute;
+						top: 20px;
+						right: 30px;
+
+						i {
+							font-size: 24px;
+						}
+					}
+				}
+
+				@media only screen and (max-width: 1388px) {
+					.flights_search_bottom_boxed {
+						.date {
+							width: 55% !important;
+						}
+					}
+				}
+
+				@media only screen and (max-width: 1276px) {
+					.flights_search_bottom_boxed {
+						.date {
+							width: 60% !important;
+						}
+					}
+				}
+
+				@media only screen and (max-width: 1194px) {
+					.flights_search_bottom_boxed {
+						.date {
+							width: 65% !important;
+						}
+					}
+				}
+
+				@media only screen and (max-width: 1120px) {
+					.flights_search_bottom_boxed {
+						.date {
+							width: 73% !important;
+						}
+					}
+				}
+
+				@media only screen and (max-width: 1062px) {
+					.flights_search_bottom_boxed {
+						.date {
+							width: 80% !important;
+						}
+					}
+				}
+			}
+			@media only screen and (max-width: 1062px) {
+				.search_bottom {
+					grid-template-columns: 1fr 1fr 1fr 1fr;
+					gap: 20px;
+
+					.flights_search_bottom_boxed {
+						.date {
+							width: 80% !important;
+						}
+					}
+				}
+			}
+
+			@media only screen and (max-width: 904px) {
+				.search_bottom {
+					grid-template-columns: 1fr 1fr;
+
+					.flights_search_bottom_boxed {
+						.date {
+							width: 80% !important;
+						}
+					}
+				}
+			}
+
+			@media only screen and (max-width: 600px) {
+				.search_bottom {
+					.flights_search_bottom_boxed {
+						input {
+							font-size: 18px;
+						}
+					}
+				}
+			}
+
+			@media only screen and (max-width: 496px) {
+				.search_bottom {
+					grid-template-columns: 1fr;
+
+					.flights_search_bottom_boxed {
+						.date {
+							width: 50% !important;
+						}
+					}
+				}
+			}
+
+			@media only screen and (max-width: 374px) {
+				.search_bottom {
+					.flights_search_bottom_boxed {
+						.date {
+							width: 80% !important;
+						}
+					}
+				}
+			}
+
+			.search_button {
+				text-align: center;
+				margin-top: 30px;
+
+				button {
+					font-weight: 600;
+					letter-spacing: 1px;
 				}
 			}
 		}
