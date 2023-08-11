@@ -348,14 +348,14 @@ p:last-child {
 			.container {
 				.menu-button {
 					display: block;
-					font-size: 100px;
-					color: $--white-color;
-					background-color: $--primary-color;
+					font-size: 37px;
+					color: #fff;
+					background-color: transparent;
 					cursor: pointer;
-					transition: $--transition;
+					transition: 0.4s all ease-in-out;
 					position: absolute;
-					top: 0%;
-					left: 0%;
+					top: 16%;
+					right: 3%;
 					&:hover {
 						color: $--primary-color;
 					}
@@ -411,7 +411,19 @@ p:last-child {
 		}
 
 		.active {
-			display: block;
+			.container {
+				.main_nav {
+					.left {
+						.nav-links {
+							display: block;
+
+							li {
+								display: block;
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 
