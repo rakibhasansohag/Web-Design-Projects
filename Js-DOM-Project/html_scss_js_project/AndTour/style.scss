@@ -1688,6 +1688,13 @@ p:last-child {
 // point : Travel News start
 .travel_news {
 	.container {
+		@media only screen and (max-width: 904px) {
+			width: 80%;
+		}
+		@media only screen and (max-width: 496px) {
+			width: 100%;
+		}
+
 		.travel_news_header {
 			text-align: center;
 			padding-bottom: 30px;
@@ -1716,7 +1723,7 @@ p:last-child {
 			grid-auto-flow: dense;
 			margin-bottom: 40px;
 
-			@media only screen and (max-width: 1312px) {
+			@media only screen and (max-width: 904px) {
 				grid-template-columns: 1fr;
 			}
 
@@ -1785,6 +1792,26 @@ p:last-child {
 								}
 							}
 						}
+
+						@media only screen and (max-width: 682px) {
+							h3 {
+								font-size: 18px;
+								padding-bottom: 5px;
+							}
+							p {
+								font-size: 12px;
+								padding-top: 0;
+							}
+						}
+
+						@media only screen and (max-width: 420px) {
+							h3 {
+								font-size: 14px;
+							}
+							p {
+								font-size: 10px;
+							}
+						}
 					}
 				}
 			}
@@ -1826,6 +1853,15 @@ p:last-child {
 					}
 					p {
 						padding-top: 8px;
+					}
+
+					@media only screen and (max-width: 640px) {
+						h3 {
+							font-size: 18px;
+						}
+						p {
+							font-size: 12px;
+						}
 					}
 				}
 			}
