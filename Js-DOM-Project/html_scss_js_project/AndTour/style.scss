@@ -1912,8 +1912,8 @@ p:last-child {
 
 			.partner-slider-container {
 				display: flex;
-				animation: slideAnimation 20s linear infinite;
-				width: calc(100 % 10);
+				animation: slideAnimation 10s linear infinite;
+				width: 100%;
 			}
 
 			.partner-slide {
@@ -1922,6 +1922,22 @@ p:last-child {
 				align-items: center;
 				justify-content: center;
 				padding: 0 20px;
+
+				@media only screen and (max-width: 992px) {
+					flex: 0 0 16.6666666667%;
+				}
+
+				@media only screen and (max-width: 904px) {
+					flex: 0 0 25%;
+				}
+
+				@media only screen and (max-width: 640px) {
+					flex: 0 0 33.3333333333%;
+				}
+
+				@media only screen and (max-width: 390px) {
+					flex: 0 0 50%;
+				}
 
 				img {
 					max-width: 100%;
