@@ -28,6 +28,7 @@ $--heading-color: #f7f7f7;
 $large-screen: 1200px;
 $medium-screen: 768px;
 $small-screen: 576px;
+$--primary-color-overlay: #8b3eea9c;
 
 img {
 	max-width: 100%;
@@ -1315,3 +1316,93 @@ p:last-child {
 }
 
 // point : Explore our hot deals end
+
+// point : offer  area start
+
+.offer_area {
+	.container {
+		.offer_main_box {
+			display: grid;
+			grid-template-columns: 2fr 1fr 1fr;
+			gap: 20px;
+			grid-template-rows: min-content;
+			@media only screen and (max-width: 904px) {
+				grid-template-columns: 1fr;
+			}
+
+			.offer_box {
+				position: relative;
+				border-radius: 10px;
+				overflow: hidden;
+
+				img {
+					width: 100%;
+					height: 100%;
+					transition: $--transition;
+					object-fit: cover;
+				}
+
+				.offer_area_content {
+					position: absolute;
+					left: 0;
+					bottom: 0;
+					padding: 30px 27px;
+					z-index: 845;
+					transition: $--transition;
+
+					h2 {
+						color: $--white-color;
+						padding-bottom: 20px;
+						transition: $--transition;
+					}
+					p {
+						color: $--white-color;
+						padding-bottom: 25px;
+						transition: $--transition;
+					}
+					a {
+						padding: 12px 35px;
+						font-size: 18px;
+						transition: $--transition;
+					}
+				}
+
+				&:hover {
+					&::after {
+						content: '';
+						position: absolute;
+						left: 0;
+						top: 0;
+						width: 100%;
+						height: 100%;
+						background: $--primary-color-overlay;
+						z-index: 1;
+						transition: $--transition;
+					}
+
+					img {
+						transition: $--transition;
+						transform: scale(1.1);
+					}
+
+					.offer_area_content {
+						h2 {
+							transition: $--transition;
+							transform: translateY(-10px);
+						}
+						p {
+							transition: $--transition;
+							transform: translateY(-10px);
+						}
+						a {
+							transition: $--transition;
+							transform: translateY(-10px);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// point : offer  area end
