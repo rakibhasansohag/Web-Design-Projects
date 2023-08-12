@@ -874,3 +874,119 @@ p:last-child {
 }
 
 // point : go beyond area end
+
+// point  : Top Destination start
+
+.top_destinations {
+	padding: 100px 0 0 0;
+
+	.top_destinations_header_box {
+		text-align: center;
+		padding-bottom: 30px;
+
+		h2 {
+			position: relative;
+			padding-bottom: 15px;
+			font-weight: 600;
+
+			&::after {
+				content: '';
+				position: absolute;
+				width: 200px;
+				height: 1px;
+				background: $--primary-color;
+				left: 50%;
+				transform: translate(-50%, 50%);
+				bottom: 0;
+			}
+		}
+	}
+
+	.main_gallery {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 20px;
+
+		@media only screen and (max-width: 904px) {
+			grid-template-columns: 1fr;
+		}
+
+		.left {
+		}
+
+		.right {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			gap: 20px;
+			grid-template-rows: min-content;
+			@media only screen and (max-width: 904px) {
+				grid-template-columns: 1fr 1fr;
+			}
+
+			@media only screen and (max-width: 496px) {
+				grid-template-columns: 1fr;
+			}
+
+			.right_side_row {
+				.top_destinations_box {
+					position: relative;
+					margin-bottom: 23px;
+					border-radius: 12px;
+					overflow: hidden;
+
+					img {
+						object-fit: cover;
+						transition: $--transition;
+						// z-index: -1;
+
+						&:hover {
+							transform: scale(1.1);
+							transition: $--transition;
+						}
+					}
+				}
+
+				.top_destinations_box_img_overlay {
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					top: 0;
+					left: 0;
+					transition: $--transition;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					transition: $--transition;
+					&:hover {
+						transition: $--transition;
+						background: #8b3eea9c;
+						opacity: 0.6;
+						transform: scale(1.1);
+
+						& + .top_destinations_box_img {
+							img {
+								transition: $--transition;
+								transform: scale(1.1);
+							}
+						}
+					}
+					a {
+						color: $--white-color;
+						text-align: center;
+						transition: $--transition;
+						font-size: 24px;
+						font-weight: 300;
+					}
+				}
+
+				.top_destinations_button {
+					button {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}
+
+// point  : Top Destination end
