@@ -1870,3 +1870,76 @@ p:last-child {
 }
 
 // point : Travel News end
+
+// point : Partner slider section start
+
+.partner {
+	padding: 40px 0 40px 0;
+
+	.container {
+		@media only screen and (max-width: 904px) {
+			width: 80%;
+		}
+
+		@media only screen and (max-width: 496px) {
+			width: 100%;
+		}
+
+		.partner_slider_top {
+			text-align: center;
+			padding-bottom: 30px;
+
+			h2 {
+				position: relative;
+				padding-bottom: 15px;
+
+				&::after {
+					content: '';
+					position: absolute;
+					width: 200px;
+					height: 1px;
+					background: $--primary-color;
+					left: 50%;
+					transform: translate(-50%, 50%);
+					bottom: 0;
+				}
+			}
+		}
+
+		.partner-slider {
+			overflow: hidden;
+			position: relative;
+
+			.partner-slider-container {
+				display: flex;
+				animation: slideAnimation 20s linear infinite;
+				width: calc(100 % 10);
+			}
+
+			.partner-slide {
+				flex: 0 0 12.5%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 0 20px;
+
+				img {
+					max-width: 100%;
+					object-fit: contain;
+					height: auto;
+				}
+			}
+
+			@keyframes slideAnimation {
+				0% {
+					transform: translateX(0);
+				}
+				100% {
+					transform: translateX(-100%);
+				}
+			}
+		}
+	}
+}
+
+// point : Partner slider section end
