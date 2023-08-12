@@ -1093,3 +1093,225 @@ p:last-child {
 }
 
 // point  : Top Destination end
+
+// point : Explore our hot deals start
+
+.explore {
+	padding: 100px 0 0 0;
+	.container {
+		@media only screen and (max-width: 982px) {
+			width: 80%;
+			margin: 0 auto;
+		}
+
+		.explore_head {
+			text-align: center;
+			padding-bottom: 30px;
+
+			h2 {
+				position: relative;
+				padding-bottom: 15px;
+
+				&::after {
+					content: '';
+					position: absolute;
+					width: 200px;
+					height: 1px;
+					background: $--primary-color;
+					left: 50%;
+					transform: translate(-50%, 50%);
+					bottom: 0;
+				}
+			}
+		}
+
+		.explore_top_box {
+			background: #ffffff;
+			box-shadow: -4px -4px 16px rgb(139 62 234 / 8%),
+				4px 14px 28px rgb(139 148 250 / 7%);
+			border-radius: 12px;
+			padding: 38px 0;
+			margin: 0 auto;
+			margin-bottom: 30px;
+			width: 60%;
+			ul {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-wrap: wrap;
+				padding: 10px 30px;
+				li {
+					padding: 0 30px;
+					transition: $--transition;
+
+					@media only screen and (max-width: 982px) {
+						padding: 0 10px;
+					}
+					@media only screen and (max-width: 574px) {
+						padding: 0 5px;
+					}
+					@media only screen and (max-width: 496px) {
+						padding: 0 2px;
+					}
+
+					a {
+						margin-bottom: 0;
+						background: 0 0;
+						border: 1px solid $--primary-color;
+						color: $--black-color;
+						padding: 8px 30px;
+						border-radius: 5px;
+
+						&.active {
+							color: $--white-color;
+							background-color: $--primary-color;
+							border-color: $--primary-color;
+						}
+						&:hover {
+							color: $--white-color;
+							background-color: $--primary-color;
+							border-color: $--primary-color;
+						}
+					}
+				}
+			}
+
+			@media only screen and (max-width: 1312px) {
+				width: 80%;
+			}
+			@media only screen and (max-width: 998px) {
+				width: 100%;
+
+				ul {
+					padding: 10px 0;
+
+					li {
+						padding: 0 5px;
+
+						a {
+							padding: 8px 15px;
+						}
+					}
+				}
+			}
+
+			@media only screen and (max-width: 500px) {
+				ul {
+					li {
+						a {
+							padding: 8px 10px;
+							font-size: 10px;
+						}
+					}
+				}
+			}
+		}
+
+		.explore_card_box_main {
+			.explore_card_box {
+				overflow: hidden;
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr 1fr;
+				gap: 20px;
+				grid-template-rows: min-content;
+				@media only screen and (max-width: 904px) {
+					grid-template-columns: 1fr 1fr;
+				}
+
+				@media only screen and (max-width: 496px) {
+					grid-template-columns: 1fr;
+					gap: 10px;
+				}
+
+				.explore_card_card {
+					border-radius: 11px;
+					overflow: hidden;
+					border: 1px solid #d2d2d275;
+					transition: $--transition;
+					margin-bottom: 30px;
+
+					// &:hover {
+					// 	transition: $--transition;
+					// 	transform: scale(1.1);
+					// }
+
+					.explore_card_card_img {
+						position: relative;
+						overflow: hidden;
+						// height: 300px;
+
+						a {
+							text-decoration: none;
+							-webkit-transition: all 0.3s ease-in-out 0.1s;
+							transition: all 0.3s ease-in-out 0.1s;
+							outline: 0 !important;
+							color: $--primary-color;
+
+							img {
+								width: 100%;
+								height: 100%;
+								object-fit: cover;
+								transition: $--transition;
+								&:hover {
+									transition: $--transition;
+									transform: scale(1.1);
+								}
+							}
+						}
+						p {
+							color: $--white-color;
+							position: absolute;
+							bottom: 4px;
+							left: 13px;
+							font-size: 14px;
+						}
+					}
+
+					.explore_card_card_text {
+						background: #fff;
+						padding: 20px 15px;
+
+						h4 {
+							text-overflow: ellipsis;
+							overflow: hidden;
+							white-space: nowrap;
+
+							a {
+								color: $--black-color;
+								transition: $--transition;
+								&:hover {
+									color: $--primary-color;
+									transition: $--transition;
+								}
+							}
+						}
+						p {
+							padding: 10px 0px;
+							font-size: 14px;
+
+							span {
+								&:first-child {
+									font-weight: 600;
+									color: $--primary-color;
+								}
+								&:last-child {
+									margin-left: 10px;
+								}
+							}
+						}
+
+						h3 {
+							font-weight: 500;
+							span {
+								font-weight: 400;
+								font-size: 14px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// point : Explore our hot deals end
