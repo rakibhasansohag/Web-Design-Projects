@@ -3,8 +3,8 @@ console.log('working...');
 
 // point : nav bar
 
-const menuButton = document.querySelector('.menu-button');
-const navLinks = document.querySelector('.nav-links');
+const menuButton = document.querySelector('.menu_button');
+const navLinks = document.querySelector('.nav_links');
 const navbar = document.querySelector('.navbar');
 
 menuButton.addEventListener('click', () => {
@@ -14,10 +14,10 @@ menuButton.addEventListener('click', () => {
 
 // point : partner slider section
 
-const partnerSlider = document.querySelector('.partner-slider-container');
+const partnerSlider = document.querySelector('.partner_slider_container');
 
 function createDuplicateSlides() {
-	const slides = document.querySelectorAll('.partner-slide');
+	const slides = document.querySelectorAll('.partner_slide');
 	slides.forEach((slide) => {
 		const cloneSlide = slide.cloneNode(true);
 		partnerSlider.appendChild(cloneSlide);

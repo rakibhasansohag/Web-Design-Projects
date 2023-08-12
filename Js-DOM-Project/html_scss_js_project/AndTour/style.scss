@@ -276,7 +276,7 @@ p:last-child {
 		padding: 10px 0;
 
 		.container {
-			.menu-button {
+			.menu_button {
 				display: none;
 				background: none;
 				border: none;
@@ -301,7 +301,7 @@ p:last-child {
 						color: $--white-color;
 					}
 
-					.nav-links {
+					.nav_links {
 						display: flex;
 						gap: 60px;
 
@@ -381,7 +381,7 @@ p:last-child {
 					.left {
 						gap: 20px;
 
-						.nav-links {
+						.nav_links {
 							gap: 20px;
 						}
 					}
@@ -409,7 +409,7 @@ p:last-child {
 			.container {
 				.main_nav {
 					.left {
-						.nav-links {
+						.nav_links {
 							li {
 								&:nth-child(5) {
 									display: none;
@@ -428,7 +428,7 @@ p:last-child {
 	@media only screen and (max-width: 768px) {
 		.navbar {
 			.container {
-				.menu-button {
+				.menu_button {
 					display: block;
 					font-size: 37px;
 					color: #fff;
@@ -450,7 +450,7 @@ p:last-child {
 
 				.main_nav {
 					.left {
-						.nav-links {
+						.nav_links {
 							display: none;
 							flex-direction: column;
 							background-color: $--black-color;
@@ -503,7 +503,7 @@ p:last-child {
 			.container {
 				.main_nav {
 					.left {
-						.nav-links {
+						.nav_links {
 							display: block;
 
 							li {
@@ -659,7 +659,7 @@ p:last-child {
 					span {
 						display: block;
 						font-size: 12px;
-						padding-top: 5px;
+						padding: 5px 0;
 						text-overflow: ellipsis;
 						overflow: hidden;
 						white-space: nowrap;
@@ -672,6 +672,28 @@ p:last-child {
 
 						i {
 							font-size: 24px;
+						}
+					}
+					.range_plan {
+						position: absolute;
+						left: -38px;
+						top: 26%;
+						transform: translateX(3%);
+
+						i {
+							background: #f5eefd;
+							color: $--primary-color;
+							border: 3px solid #fff;
+							font-size: 24px;
+							width: 50px;
+							height: 50px;
+							text-align: center;
+							line-height: 46px;
+							border-radius: 50%;
+						}
+
+						@media only screen and (max-width: 498px) {
+							display: none;
 						}
 					}
 				}
@@ -1906,17 +1928,17 @@ p:last-child {
 			}
 		}
 
-		.partner-slider {
+		.partner_slider {
 			overflow: hidden;
 			position: relative;
 
-			.partner-slider-container {
+			.partner_slider_container {
 				display: flex;
 				animation: slideAnimation 10s linear infinite;
 				width: 100%;
 			}
 
-			.partner-slide {
+			.partner_slide {
 				flex: 0 0 12.5%;
 				display: flex;
 				align-items: center;
