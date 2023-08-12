@@ -1104,7 +1104,9 @@ p:last-child {
 			width: 80%;
 			margin: 0 auto;
 		}
-
+		@media only screen and (max-width: 496px) {
+			width: 100%;
+		}
 		.explore_head {
 			text-align: center;
 			padding-bottom: 30px;
@@ -1321,13 +1323,44 @@ p:last-child {
 
 .offer_area {
 	.container {
+		@media only screen and (max-width: 904px) {
+			width: 80%;
+		}
+		@media only screen and (max-width: 496px) {
+			width: 100%;
+		}
+
 		.offer_main_box {
 			display: grid;
 			grid-template-columns: 2fr 1fr 1fr;
 			gap: 20px;
 			grid-template-rows: min-content;
+
 			@media only screen and (max-width: 904px) {
+				grid-template-columns: 1fr 1fr;
+
+				.offer_box {
+					margin-bottom: 30px;
+					img {
+						height: 500px !important;
+					}
+				}
+				.responsive_row_gallery {
+					display: none;
+				}
+			}
+
+			@media only screen and (max-width: 600px) {
 				grid-template-columns: 1fr;
+				.offer_box {
+					margin-bottom: 30px;
+					img {
+						height: 500px !important;
+					}
+				}
+				.responsive_row_gallery {
+					display: block;
+				}
 			}
 
 			.offer_box {
@@ -1364,6 +1397,18 @@ p:last-child {
 						padding: 12px 35px;
 						font-size: 18px;
 						transition: $--transition;
+					}
+
+					@media only screen and (max-width: 1068px) {
+						h2 {
+							font-size: 20px;
+						}
+						p {
+							font-size: 14px;
+						}
+						a {
+							font-size: 14px;
+						}
 					}
 				}
 
@@ -1406,3 +1451,7 @@ p:last-child {
 }
 
 // point : offer  area end
+
+// point : destinations for you start
+
+// point : destinations for you end
