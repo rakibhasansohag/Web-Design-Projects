@@ -57,3 +57,15 @@ goToTopButton.addEventListener('click', () => {
 		goToTopButton.style.animation = 'none';
 	}, 500);
 });
+
+// point : for dynamic date on journey section
+const dateInput = document.getElementById('journeyDate');
+const dayOfWeekSpan = document.getElementById('dayOfWeek');
+
+function updateDayOfWeek() {
+	const date = new Date(dateInput.value);
+	const dayOfWeek = date.toLocaleString('en-US', { weekday: 'long' });
+	dayOfWeekSpan.textContent = dayOfWeek;
+}
+updateDayOfWeek();
+dateInput.addEventListener('change', updateDayOfWeek);
