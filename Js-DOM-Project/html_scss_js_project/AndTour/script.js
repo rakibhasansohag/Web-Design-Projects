@@ -25,3 +25,8 @@ function createDuplicateSlides() {
 }
 
 createDuplicateSlides();
+
+// point : Copyright Date section
+const copyright = document.getElementById('copyright');
+const date = new Date().getFullYear();
+copyright.textContent = date;

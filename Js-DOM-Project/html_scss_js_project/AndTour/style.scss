@@ -2147,7 +2147,15 @@ p:last-child {
 // point : footer section start
 
 .footer {
-	padding: 100px 0 0 0;
+	padding: 100px 0;
+
+	@media only screen and (max-width: 904px) {
+		padding: 60px 0;
+	}
+
+	@media only screen and (max-width: 496px) {
+		padding: 20px 0 40px 0;
+	}
 
 	.container {
 		@media only screen and (max-width: 904px) {
@@ -2270,3 +2278,45 @@ p:last-child {
 	margin-left: 15.333333%;
 }
 // point : footer section end
+
+// point : copyright section start
+
+.copyright_area {
+	padding: 20px 0 17px 0;
+	background-color: #f3f6fd;
+	.container {
+		@media only screen and (max-width: 904px) {
+			width: 80%;
+		}
+		@media only screen and (max-width: 496px) {
+			width: 100%;
+		}
+
+		.copyright_box {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+
+			@media only screen and (max-width: 496px) {
+				grid-template-columns: 1fr;
+			}
+
+			.left {
+				p {
+					color: $--black-color;
+					font-size: 16px;
+					font-weight: 500;
+				}
+			}
+			.right {
+				text-align: right;
+
+				@media only screen and (max-width: 496px) {
+					text-align: start;
+					margin-top: 10px;
+				}
+			}
+		}
+	}
+}
+
+// point : copyright section end
