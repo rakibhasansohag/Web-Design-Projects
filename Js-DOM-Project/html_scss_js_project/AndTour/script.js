@@ -30,3 +30,24 @@ createDuplicateSlides();
 const copyright = document.getElementById('copyright');
 const date = new Date().getFullYear();
 copyright.textContent = date;
+
+// point : scroll to top button
+
+const goToTopButton = document.getElementById('goToTopButton');
+
+window.addEventListener('scroll', () => {
+	if (window.pageYOffset > 100) {
+		goToTopButton.style.opacity = '1';
+		goToTopButton.style.visibility = 'visible';
+	} else {
+		goToTopButton.style.opacity = '0';
+		goToTopButton.style.visibility = 'hidden';
+	}
+});
+
+goToTopButton.addEventListener('click', () => {
+	window.scrollTo({
+		top: 0,
+		behavior: 'smooth',
+	});
+});
