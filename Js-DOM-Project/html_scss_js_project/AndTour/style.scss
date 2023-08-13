@@ -2331,10 +2331,60 @@ p:last-child {
 	cursor: pointer;
 	visibility: hidden;
 	opacity: 0;
+	transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
 
-	button {
+	.btn {
+		border: none;
 		border-radius: 50%;
 		padding: 10px 13px;
-		font-size: 10px;
+		font-size: 18px;
+		color: #fff;
+		position: relative;
+		transition: transform 0.3s, opacity 0.3s;
+
+		.fa-chevron-up {
+			transition: opacity 0.3s;
+		}
+
+		.arrow-hover {
+			position: absolute;
+			top: 55px;
+			left: 14px;
+			opacity: 0;
+			transition: top 0.3s, opacity 0.3s;
+		}
+
+		&:hover {
+			transform: translateY(-5px);
+			.fa-chevron-up {
+				opacity: 0;
+			}
+			.arrow-hover {
+				top: 15px;
+				left: 14px;
+				opacity: 1;
+				transition: $--transition;
+			}
+		}
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes bounce {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	25%,
+	75% {
+		transform: translateY(-10px);
 	}
 }

@@ -39,9 +39,11 @@ window.addEventListener('scroll', () => {
 	if (window.pageYOffset > 100) {
 		goToTopButton.style.opacity = '1';
 		goToTopButton.style.visibility = 'visible';
+		goToTopButton.style.animation = 'fadeIn 0.5s forwards';
 	} else {
 		goToTopButton.style.opacity = '0';
 		goToTopButton.style.visibility = 'hidden';
+		goToTopButton.style.animation = 'none';
 	}
 });
 
@@ -50,4 +52,8 @@ goToTopButton.addEventListener('click', () => {
 		top: 0,
 		behavior: 'smooth',
 	});
+	goToTopButton.style.animation = 'bounce 0.5s ease-in-out';
+	setTimeout(() => {
+		goToTopButton.style.animation = 'none';
+	}, 500);
 });
