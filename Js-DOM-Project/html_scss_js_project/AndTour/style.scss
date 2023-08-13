@@ -50,7 +50,8 @@ a:focus {
 }
 
 a:hover {
-	color: $--heading-color;
+	color: $--black-color;
+	transition: $--transition;
 }
 
 h1 {
@@ -2143,5 +2144,129 @@ p:last-child {
 
 // point : news letter section end
 
-// point :     footer section start
+// point : footer section start
+
+.footer {
+	padding: 100px 0 0 0;
+
+	.container {
+		@media only screen and (max-width: 904px) {
+			width: 80%;
+		}
+
+		@media only screen and (max-width: 496px) {
+			width: 100%;
+		}
+
+		.footer_area {
+			display: grid;
+			grid-template-columns: 3fr 2fr 2fr 2fr 2fr;
+			grid-gap: 20px;
+			@media only screen and (max-width: 992px) {
+				grid-template-columns: 2fr 2fr;
+				gap: 30px;
+				.footer_rows {
+					.footer_header_area {
+						h5 {
+							font-size: 28px !important;
+						}
+					}
+
+					&:nth-last-child(1) {
+						display: none !important;
+					}
+					&:nth-child(2) {
+						margin-left: 0 !important;
+					}
+				}
+			}
+
+			@media only screen and (max-width: 430px) {
+				grid-gap: 15px;
+			}
+			@media only screen and (max-width: 414px) {
+				grid-template-columns: 1fr;
+				grid-gap: 15px;
+
+				.footer_rows {
+					&:nth-last-child(1) {
+						display: block !important;
+					}
+				}
+			}
+
+			.footer_rows {
+				@media only screen and (max-width: 904px) {
+					margin-bottom: 30px;
+				}
+
+				.footer_header_area {
+					h5 {
+						border-bottom: 1px solid $--primary-color;
+						display: inline-flex;
+						padding-bottom: 5px;
+						font-weight: 500;
+					}
+				}
+
+				.footer_first_area {
+					.footer_need_area {
+						padding-top: 5px;
+						border-left: 2px solid $--primary-color;
+						margin-top: 25px;
+						padding-left: 9px;
+
+						h5 {
+							font-size: 16px;
+							font-weight: 500;
+						}
+
+						h3 {
+							font-weight: 500;
+							padding-top: 10px;
+
+							@media only screen and (max-width: 1200px) {
+								font-size: 18px;
+							}
+
+							@media only screen and (max-width: 496px) {
+								font-size: 16px;
+							}
+						}
+						ul {
+							display: flex;
+							gap: 10px;
+							margin-top: 08px;
+							flex-wrap: wrap;
+						}
+					}
+				}
+
+				.footer_link_area {
+					padding-top: 20px;
+
+					ul {
+						li {
+							padding-bottom: 15px;
+
+							a {
+								color: $--black-color;
+								font-size: 16px;
+								font-weight: 400;
+								transition: $--transition;
+								&:hover {
+									color: $--primary-color;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.margin_left {
+	margin-left: 15.333333%;
+}
 // point : footer section end
