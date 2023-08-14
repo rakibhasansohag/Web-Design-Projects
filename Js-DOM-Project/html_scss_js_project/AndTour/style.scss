@@ -103,13 +103,13 @@ p:last-child {
 	width: 100%;
 	margin: auto;
 	max-width: 1440px;
-	// padding: 0 10px;
-	// @media only screen and (max-width: 991px) {
-	// 	padding: 0 10px;
-	// }
-	// @media only screen and (max-width: 767px) {
-	// 	padding: 0 15px;
-	// }
+	padding: 0 10px;
+	@media only screen and (max-width: 991px) {
+		padding: 0 10px;
+	}
+	@media only screen and (max-width: 767px) {
+		padding: 0 15px;
+	}
 }
 
 .btn {
