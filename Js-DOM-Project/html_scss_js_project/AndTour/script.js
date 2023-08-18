@@ -58,18 +58,29 @@ goToTopButton.addEventListener('click', () => {
 	}, 500);
 });
 
-// point : for dynamic date on journey section
-const dateInput = document.getElementById('journeyDate');
-const dayOfWeekSpan = document.getElementById('dayOfWeek');
+// point : for dynamic date on journey
+// https://stackoverflow.com/questions/3552461/how-to-format-a-javascript-date for date format ( and )DOMContentLoaded = https://stackoverflow.com/questions/799981/document-addeventlistenerdomcontentloaded
+document.addEventListener('DOMContentLoaded', function () {
+	const dateInput = document.getElementById('journeyDate');
+	const dayOfWeekSpan = document.getElementById('dayOfWeek');
 
-function updateDayOfWeek() {
-	const date = new Date(dateInput.value);
-	const dayOfWeek = date.toLocaleString('en-US', { weekday: 'long' });
-	dayOfWeekSpan.textContent = dayOfWeek;
-}
-updateDayOfWeek();
-dateInput.addEventListener('change', updateDayOfWeek);
+	function updateDayOfWeek() {
+		const date = new Date(dateInput.value);
+		const dayOfWeek = date.toLocaleString('en-US', { weekday: 'long' });
+		dayOfWeekSpan.textContent = dayOfWeek;
+	}
 
+	function setTodayDate() {
+		const today = new Date();
+		const todayDate = today.toISOString().slice(0, 10);
+		dateInput.value = todayDate;
+	}
+
+	setTodayDate();
+
+	updateDayOfWeek();
+	dateInput.addEventListener('change', updateDayOfWeek);
+});
 // for sticky navbar
 $(document).ready(function () {
 	$(window).scroll(function () {
