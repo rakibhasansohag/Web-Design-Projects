@@ -194,6 +194,35 @@ p:last-child {
 	width: 100%;
 	z-index: 9999;
 
+	// point : sticky navbar
+	&.sticky {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		background-color: $--primary-color;
+		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+		padding: 10px 0;
+		transition: all 0.3s ease-in-out 0s;
+		animation: fadeInDown 0.5s ease-in-out 0s;
+		padding: 0px;
+
+		.topbar_area {
+			display: none !important;
+		}
+	}
+
+	@keyframes fadeInDown {
+		from {
+			opacity: 0;
+			transform: translateY(-20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
 	.topbar_area {
 		background-color: transparent;
 		color: $--white-color;

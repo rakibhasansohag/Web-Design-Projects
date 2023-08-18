@@ -69,3 +69,16 @@ function updateDayOfWeek() {
 }
 updateDayOfWeek();
 dateInput.addEventListener('change', updateDayOfWeek);
+
+// for sticky navbar
+$(document).ready(function () {
+	$(window).scroll(function () {
+		var scroll = $(window).scrollTop();
+
+		if (scroll > 100) {
+			$('.main_header_area').addClass('sticky');
+		} else {
+			$('.main_header_area').removeClass('sticky');
+		}
+	});
+});
