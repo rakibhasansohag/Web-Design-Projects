@@ -1,0 +1,28 @@
+1 .Guard Clause:
+
+Used in various places in the code, like in the tabsContainer event listener and revelSection function.
+A guard clause is a conditional statement placed at the beginning of a function or code block to handle exceptional cases or exit early if certain conditions are not met. In the code, it prevents further execution if a certain condition is not met, improving code readability and avoiding unnecessary processing.
+/////////////////////////////////
+
+2.Intersection Observer:
+
+Used in the stickyNav and revelSection functions.
+Intersection Observer is an API that allows you to asynchronously observe changes in the intersection of a target element with an ancestor element or the viewport. In the code, it's used to trigger actions when elements come into view or intersect with certain conditions.
+
+///////////////////// 
+3.Short Circuiting:
+
+In the keydown event listener for arrow keys (document.addEventListener('keydown', ...)).
+Short circuiting is a technique where a logical operation stops evaluating as soon as it determines the outcome. In JavaScript, the && and || operators are used for short circuiting. In the code, e.key === 'ArrowRight' && nextSlide() is an example of using the && operator for short circuiting.
+////////////////////////
+4.Using bind:
+
+In the handleHover function when binding 0.5 and 1 as opacity values.
+The bind() method is used to create a new function that, when invoked, has its this value set to a specific value. In the code, handleHover.bind(0.5) and handleHover.bind(1) are used to create new functions with a predefined opacity value for the hover effect.
+
+///////////////////
+5.scrollIntoView:
+
+Used in the btnScrollTo click event listener and the nav__links click event listener.
+scrollIntoView() is a method that scrolls the current element into the visible area of the browser window. In the code, it's used to smoothly scroll to specific sections or elements when certain events are triggered.
+These concepts and techniques contribute to the functionality and structure of the code, making it more efficient, readable, and interactive.

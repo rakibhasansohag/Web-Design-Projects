@@ -272,23 +272,12 @@ document.querySelector('.btn--close-cookie').addEventListener('click', () => {
 
 // // Point : Navbar
 
-// const toggleBtn = document.querySelector('.hamburger');
-// const navLinks = document.querySelector('.nav__links');
-
-// toggleBtn.addEventListener('click', () => {
-// 	toggleBtn.classList.toggle('open');
-// 	navLinks.classList.toggle('open');
-// });
-
-//toggle hamburger
-
 const hamMenu = document.querySelector('.hamburger');
 const hiddenMenu = document.querySelector('.nav__links');
 
 hamMenu.addEventListener('click', function () {
 	if (document.querySelector('.nav').classList.contains('sticky')) {
 		hiddenMenu.classList.toggle('active-sticky');
-		
 	} else {
 		hiddenMenu.classList.toggle('active');
 	}
