@@ -252,3 +252,20 @@ const slider = function () {
 };
 
 slider();
+
+// Creating and inserting elements
+const message = document.createElement('div');
+message.classList.add('cookie-message');
+
+message.innerHTML =
+	'We use cookied for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>';
+
+message.style.backgroundColor = '#37383d';
+message.style.width = '120%';
+header.append(message);
+
+// Delete elements
+
+document.querySelector('.btn--close-cookie').addEventListener('click', () => {
+	message.remove();
+});
