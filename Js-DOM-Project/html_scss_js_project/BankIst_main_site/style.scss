@@ -35,7 +35,6 @@ body {
 .section {
 	padding: 15rem 3rem;
 	border-top: 1px solid #ddd;
-
 	transition: transform 1s, opacity 1s;
 }
 
@@ -119,17 +118,20 @@ img {
 	width: 100%;
 	padding: 0 6rem;
 	z-index: 100;
-}
 
-//  nav and Sticky class at the same time
-.nav.sticky {
-	position: fixed;
-	background-color: rgba(255, 255, 255, 0.95);
+	&.sticky {
+		background-color: rgba(255, 255, 255, 0.95);
+		position: fixed;
+	}
 }
 
 .nav__logo {
 	height: 4.5rem;
 	transition: all 0.3s;
+}
+
+.hamburger {
+	display: none;
 }
 
 .nav__links {
@@ -168,9 +170,10 @@ img {
 }
 
 // Point :  HEADER
+
 .header {
 	padding: 0 3rem;
-	height: 100vh;
+	// height: 100vh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -178,7 +181,7 @@ img {
 
 .header__title {
 	flex: 1;
-
+	margin: 9rem 0;
 	max-width: 115rem;
 	display: grid;
 	grid-template-columns: 3fr 2fr;
@@ -668,4 +671,142 @@ h4 {
 	padding: 20px;
 	position: fixed;
 	bottom: 0;
+}
+
+// Point :  RESPONSIVE
+
+@media only screen and (max-width: 1200px) {
+	.section {
+		padding: 10rem 3rem;
+	}
+
+	h1 {
+		font-size: 5rem;
+		line-height: 1.6;
+	}
+}
+
+@media screen and (max-width: 1025px) {
+	.nav {
+		padding: 1rem;
+	}
+	.nav__link--btn {
+		font-size: 1.3rem;
+	}
+	.features {
+		margin: 0 6rem;
+	}
+	.modal {
+		padding: 3rem;
+	}
+
+	nav {
+		flex-direction: column;
+		gap: 3rem;
+		margin-top: 2rem;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	body {
+		font-size: 1rem;
+	}
+
+	.nav {
+		padding: 0 3rem;
+	}
+}
+
+@media only screen and (max-width: 750px) {
+	header {
+		position: relative;
+	}
+	.header__title {
+		grid-template-columns: 1fr;
+	}
+	.features {
+		margin: 0 1rem;
+		gap: 1rem;
+		align-items: center;
+	}
+	.features__feature {
+		width: 100%;
+	}
+
+	.operations__content {
+		padding: 2rem 4rem;
+	}
+	.testimonial {
+		width: 75%;
+	}
+	.cookie-message button {
+		font-size: 1.2rem;
+	}
+	.nav__links {
+		display: none;
+	}
+	.hamburger {
+		display: inline-block;
+		width: 5rem;
+		cursor: pointer;
+	}
+	.nav__links.active {
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		top: 10%;
+		left: 0;
+		right: 0;
+		background-color: #f3f3f3;
+		padding: 2rem;
+		z-index: 997;
+	}
+	.nav__links.active-sticky {
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		top: 80%;
+		left: 0;
+		right: 0;
+		background-color: rgba(255, 255, 255, 0.95);
+		padding: 2rem;
+		z-index: 997;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.modal__form {
+		grid-template-columns: 1fr;
+		gap: 1rem;
+	}
+	.features {
+		grid-template-columns: 1fr;
+	}
+
+	.operations__tab-container {
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+	.operations__tab {
+		margin: initial;
+	}
+	.operations__tab--active {
+		box-shadow: -2px 10px 24px -11px rgba(0, 0, 0, 0.62);
+		-webkit-box-shadow: -2px 10px 24px -11px rgba(0, 0, 0, 0.62);
+		-moz-box-shadow: -2px 10px 24px -11px rgba(0, 0, 0, 0.62);
+	}
+	.slider {
+		display: none;
+	}
+	.cookie-message button,
+	.cookie-message {
+		font-size: 0.8rem;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	.header__title {
+		grid-template-columns: 1fr;
+		row-gap: 2rem;
+	}
 }

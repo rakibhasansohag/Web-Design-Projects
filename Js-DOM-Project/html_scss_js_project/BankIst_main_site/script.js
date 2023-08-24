@@ -269,3 +269,13 @@ header.append(message);
 document.querySelector('.btn--close-cookie').addEventListener('click', () => {
 	message.remove();
 });
+
+// Point : Navbar
+
+const toggleBtn = document.querySelector('.nav__toggle-btn');
+const navLinks = document.querySelector('.nav__links');
+
+toggleBtn.addEventListener('click', () => {
+	toggleBtn.classList.toggle('open');
+	navLinks.classList.toggle('open');
+});
