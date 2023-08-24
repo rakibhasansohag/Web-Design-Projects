@@ -288,6 +288,7 @@ const hiddenMenu = document.querySelector('.nav__links');
 hamMenu.addEventListener('click', function () {
 	if (document.querySelector('.nav').classList.contains('sticky')) {
 		hiddenMenu.classList.toggle('active-sticky');
+		
 	} else {
 		hiddenMenu.classList.toggle('active');
 	}
