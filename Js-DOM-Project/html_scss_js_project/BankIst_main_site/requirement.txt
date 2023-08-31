@@ -26,3 +26,9 @@ The bind() method is used to create a new function that, when invoked, has its t
 Used in the btnScrollTo click event listener and the nav__links click event listener.
 scrollIntoView() is a method that scrolls the current element into the visible area of the browser window. In the code, it's used to smoothly scroll to specific sections or elements when certain events are triggered.
 These concepts and techniques contribute to the functionality and structure of the code, making it more efficient, readable, and interactive.
+
+///////////////////////////
+6.tabbed Container 
+
+used in tabbed button container where is operation section is.
+
