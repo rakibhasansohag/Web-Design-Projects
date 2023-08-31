@@ -1,6 +1,6 @@
-<!-- TODO :  this is  a upcoming features file  -->
+<!-- TODO :  this is  an upcoming features List  -->
 
-<!-- / i will  added those additional features in near future one by one  -->
+<!-- / I will  added those additional features in near future one by one  -->
 
 <!-- Task :  1 :  Ability to Edit a workout -->
 
