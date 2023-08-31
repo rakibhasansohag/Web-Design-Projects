@@ -234,3 +234,20 @@ a:visited {
 		padding: 1.5rem 2.25rem;
 	}
 }
+
+@media only screen and (max-width: 850px) {
+	.sidebar {
+		flex-basis: 30rem;
+		padding: 3rem 2rem 4rem 2rem;
+	}
+	.form {
+		padding: 1.5rem 1.75rem;
+	}
+}
+
+@media only screen and (max-width: 678px) {
+	.sidebar {
+		flex-basis: 5%;
+		padding: 3rem 2rem 4rem 2rem;
+	}
+}
