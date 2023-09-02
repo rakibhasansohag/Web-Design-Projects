@@ -219,6 +219,66 @@ a:visited {
 	border-left: 5px solid var(--color-brand--1);
 }
 
+/* Point :  Edit and Delete Buttons */
+.workout__edit,
+.workout__delete {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	font-size: 1.6rem;
+	margin-right: 1rem;
+	transition: all 0.2s;
+}
+
+.workout__edit {
+	color: #00c46a;
+	padding-left: 5px;
+	margin-left: 5px;
+	border-left: 2px solid;
+}
+
+.workout__delete {
+	color: #ff453a;
+}
+
+.workout__edit:hover,
+.workout__delete:hover {
+	transform: scale(1.1);
+	transition: all 0.2s;
+}
+
+/* Point : COOKIE MESSAGE */
+
+.btn {
+	display: inline-block;
+	background-color: #5ec576;
+	font-size: 1.6rem;
+	font-family: inherit;
+	font-weight: 500;
+	border: none;
+	padding: 1.25rem 4.5rem;
+	border-radius: 10rem;
+	cursor: pointer;
+	transition: all 0.3s;
+}
+
+.cookie-message {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	width: 100%;
+	background-color: white;
+	color: #bbb;
+	font-size: 1.5rem;
+	font-weight: 400;
+	padding: 20px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 1000;
+}
+
+/* Point :  Responsive  style */
 @media only screen and (max-width: 1000px) {
 	body {
 		padding: 2.5rem 1.5rem;
@@ -233,6 +293,9 @@ a:visited {
 	.form {
 		padding: 1.5rem 2.25rem;
 	}
+	.cookie-message button {
+		font-size: 1.2rem;
+	}
 }
 
 @media only screen and (max-width: 850px) {
@@ -245,9 +308,14 @@ a:visited {
 	}
 }
 
-@media only screen and (max-width: 678px) {
+@media only screen and (max-width: 600px) {
+	.cookie-message button,
+	.cookie-message {
+		font-size: 0.8rem;
+	}
+
 	.sidebar {
-		flex-basis: 5%;
-		padding: 3rem 2rem 4rem 2rem;
+		flex-basis: 25rem;
+		padding: 3rem 1.5rem 4rem 1.5rem;
 	}
 }
