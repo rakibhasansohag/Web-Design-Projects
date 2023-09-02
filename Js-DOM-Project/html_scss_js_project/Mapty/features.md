@@ -2,11 +2,11 @@
 
 <!-- / I will  added those additional features in near future one by one  -->
 
-<!-- Task :  1 :  Ability to Edit a workout -->
+<!-- Task :  1 :  Ability to Edit a workout ( DONE ) -->
 
-<!-- Task :  2 :  Ability to Delete a workout -->
+<!-- Task :  2 :  Ability to Delete a workout ( DONE ) -->
 
-<!-- Task :  3 :  Ability to Delete ( reset ) All  workout -->
+<!-- Task :  3 :  Ability to Delete ( reset ) All  workout (Done) -->
 
 <!-- Task :  4 :  Ability to sort  workouts by certain field ( example : cycling/walking, distance) -->
 
